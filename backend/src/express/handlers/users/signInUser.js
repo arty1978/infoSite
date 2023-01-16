@@ -11,8 +11,7 @@ async function signInUser(req, res) {
     const userFromDb = await operations.signInUser(email, password);
     if (!userFromDb)
         return res.status(500).json('no user found');
-    // const token = jsonwebtoken.sign({ userid: userFromDb._id }, 'mykey');
-    // return res.json(token);
-    return res.json(userFromDb);
+    const token = jsonwebtoken.sign({ userid: userFromDb._id }, 'tokenKey');
+    return res.json(token);
 }
 module.exports = signInUser;
