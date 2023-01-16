@@ -1,0 +1,33 @@
+<h2>Articles Management</h2>
+<br />
+<button routerLink="/articles-body" class="newArticleButton">
+  New Article
+</button>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of articles; let i = index" (dblclick)="edit(a)">
+      <td>{{ i + 1 }}</td>
+      <td>{{ a.title }}</td>
+      <td>{{ a.subTitle }}</td>
+      <td>{{ a.category }}</td>
+      <td>{{ a.author }}</td>
+      <!-- <td>{{ a.publishDate | date : "dd/MM/yy hh:mm" }}</td> -->
+      <td>
+        <button class="edit" (click)="edit(a)">Edit</button>
+        <button class="remove" (click)="remove(a)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

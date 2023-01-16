@@ -1,0 +1,61 @@
+h2 {
+  margin: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(123, 192, 213);
+  color: white;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  width: 10%;
+  white-space: nowrap;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(194, 204, 244, 0.461);
+}
+
+td:last-child > span {
+  transition: 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+tr td:last-child {
+  text-align: left;
+}
+
+.edit {
+  background-color: rgb(192, 224, 243);
+  border-radius: 35%;
+  margin-right: 7px;
+  transition: 0.3s;
+  border: none;
+}
+
+.remove {
+  background-color: rgb(243, 192, 192);
+  border-radius: 35%;
+  transition: 0.2s;
+  border: none;
+}
+
+.edit:hover {
+  scale: 1.2;
+}
+
+.remove:hover {
+  scale: 1.2;
+}
+
+.newArticleButton {
+  margin: 10px;
+}/*# sourceMappingURL=articles.component.css.map */

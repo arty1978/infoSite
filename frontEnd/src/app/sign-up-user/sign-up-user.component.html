@@ -1,0 +1,29 @@
+<form *ngIf="form" class="frame" [formGroup]="form">
+  <h2 *ngIf="!user._id">Register Now</h2>
+  <!-- <h2>Register Now</h2> -->
+
+  <div>
+    <label class="field">UserName</label>
+    <input type="text" formControlName="userName" />
+  </div>
+
+  <div>
+    <label class="field">Full Name</label>
+    <input type="text" formControlName="fullName" />
+  </div>
+
+  <div>
+    <label class="field">email</label>
+    <input type="text" formControlName="email" />
+  </div>
+
+  <div>
+    <label class="field">Password</label>
+    <input type="password" formControlName="password" />
+  </div>
+  <div>
+    <label class="field">Password confirmation</label>
+    <input type="password" formControlName="passwordConfirmation" />
+  </div>
+  <div clas="field"><button type="submit" (click)="send()">Add</button></div>
+</form>

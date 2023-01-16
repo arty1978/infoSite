@@ -1,0 +1,63 @@
+<form *ngIf="form" class="frame" [formGroup]="form">
+  <h2 *ngIf="article._id">Edit Article</h2>
+  <h2 *ngIf="!article._id">Add Article</h2>
+
+  <div>
+    <label class="field">Title</label>
+    <input type="text" formControlName="title" />
+  </div>
+
+  <div>
+    <label class="field">Subtitle</label>
+    <input type="text" formControlName="subTitle" />
+  </div>
+
+  <div>
+    <label class="field">Article Category:</label>
+    <input type="text" formControlName="category" />
+  </div>
+
+  <div>
+    <label class="field">Author:</label>
+    <input type="text" formControlName="author" />
+  </div>
+
+  <!-- <div>
+    <label class="field">Publish date:</label>
+    <input type="text" formControlName="publishDate" />
+  </div> -->
+
+  <div class="field">
+    <label>Content:</label>
+    <textarea formControlName="body" cols="30" rows="10"></textarea>
+  </div>
+
+  <!-- <input #imageInput [hidden]="true" type="file" (change)="imageChange()" /> -->
+
+  <!-- <div *ngIf="articles.imgId">
+    <img
+      [src]="'http://localhost:4000/articles/image/' + articles.imgId"
+      class="editImg"
+      (click)="selectImage()"
+    />
+  </div> -->
+
+  <!-- <div *ngIf="alternativeImage">
+    <h3 *ngIf="articles.imgId">Change Image</h3>
+    <img [src]="alternativeImage" class="editImg" (click)="selectImage()" />
+  </div>
+ -->
+  <!-- <div *ngIf="!articles.imgId && !alternativeImage" class="editImg">
+    <button (click)="selectImage()">Upload Image</button>
+  </div> -->
+
+  <div class="field">
+    <button *ngIf="article._id" (click)="update()" [disabled]="!form.valid">
+      Save
+    </button>
+    <!-- <button *ngIf="!article.id" (click)="add()" [disabled]="!form.valid">
+      Add
+    </button> -->
+    <button *ngIf="!article._id" (click)="add()">Add</button>
+  </div>
+</form>

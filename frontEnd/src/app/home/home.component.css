@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: rgb(86, 85, 85);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: rgb(142, 192, 189);
+}
+
+.divPara {
+  text-align: center;
+}
+
+p {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: rgb(86, 85, 85);
+}/*# sourceMappingURL=home.component.css.map */
