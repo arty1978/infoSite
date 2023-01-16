@@ -1,7 +1,7 @@
 const userOperations = require('../../mongoose/controllers/UserOperations');
 const jsonwebtoken = require('jsonwebtoken');
 
-async function authenticateUser(req, response, next) {
+async function authenticateUser(req, res, next) {
     const token = req.headers.token;
     if (!token)
         return res.status(401).json({ 'message': 'No token provided' });
@@ -10,7 +10,7 @@ async function authenticateUser(req, response, next) {
         req.userID = userFromDb._id;
         next();
     } catch {
-        return response.status(401).json({ 'message': 'Invalid token' });
+        return res.status(401).json({ 'message': 'Invalid token' });
     }
 
 

@@ -10,10 +10,8 @@ async function createArticle(req, res) {
 
     if (result.err) return response.status(400).json(result.error.details[0].message);
     req.body.userId = req.userID;
-    // console.log(req.body, "req.body", userFromDb._id, 'users id');
 
     const articleFromDb = await operations.createArticleInMongoDb(req.body)
-    // console.log(articleFromDb, 'articleFromDb');
     if (articleFromDb === null) {
         return res.status(500).json("General error. article not saved")
     }
