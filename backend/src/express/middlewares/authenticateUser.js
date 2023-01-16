@@ -2,18 +2,18 @@ const userOperations = require('../../mongoose/controllers/UserOperations');
 const jsonwebtoken = require('jsonwebtoken');
 
 async function authenticateUser(req, response, next) {
-    const { email, password } = req.headers;
-    console.log({ email, password }, 'authen...');
-    if (!req.headers.email || !req.headers.password)
-        return res.status(401).json({ 'meg': "User not alowed,No email and password provided" });
+    const token = req.headers.token;
+    if (!token)
+        return res.status(401).json({ 'message': 'No token provided' });
+    try {
+        const userFromDb = jsonwebtoken.verify(token, 'webToken')
+        req.userID = userFromDb._id;
+        next();
+    } catch {
+        return response.status(401).json({ 'message': 'Invalid token' });
+    }
 
-    const userFromDb = await userOperations.signInUser(email, password);
-    if (userFromDb === null)
-        return res.status(401).json({ 'meg': "No email and password found in DB" });
 
-    req.userID = userFromDb._id;
-
-    next();
 
     //  .  נשלח טוקן .  
     // const token = req.headers.token;
@@ -21,7 +21,7 @@ async function authenticateUser(req, response, next) {
     //     return response.status(401).json({ 'message': 'No token provided' });
 
     // try {
-    //     const data = jsonwebtoken.verify(token, 'mykey');
+    //     const data = jsonwebtoken.verify(token, 'webToken');
     //     req.userID = data.userid;
     //     next();
     // }
