@@ -1,4 +1,3 @@
-const userOperations = require('../../mongoose/controllers/UserOperations');
 const jsonwebtoken = require('jsonwebtoken');
 
 async function authenticateUser(req, res, next) {

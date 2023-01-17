@@ -31,10 +31,10 @@ async function deleteArticle(articleId, userId) {
     }
 }
 
-async function updateArticle(id, articleData) {
+async function updateArticle(cardId, userId, articleData) {
     try {
-        console.log(id, articleData);
-        const updatedArticle = await articleModel.findByIdAndUpdate({ _id: id }, articleData);
+        console.log(cardId, userId, articleData);
+        const updatedArticle = await articleModel.findByIdAndUpdate({ _id: cardId, userId: userId }, articleData);
         console.log(updatedArticle);
         return updatedArticle;
     }
