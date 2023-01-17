@@ -10,6 +10,34 @@
     conservative media paradigm. So all articles published, can be republished
     for free, either translated or in the original language. You can use them
     for commercial and non-commercial purposes. You do not need to ask
-    permission from or provide any credit.
+    permission from us or provide any credit.
   </p>
+</div>
+
+<h3>
+  You can browse our newest article below.<br />
+  Don't forget to click an article you like to open it in full view:
+</h3>
+
+<div class="wraper">
+  <div class="gridContainer">
+    <div *ngFor="let a of articles; let i = index" class="item{{ i + 1 }}">
+      <a
+        class="button"
+        [routerLink]="['checkarticle', a._id]"
+        style="text-decoration: none; color: inherit"
+      >
+        <span style="text-decoration: underline">Article Title</span>:
+        {{ a.title }} <br />
+        <span style="text-decoration: underline">Article SubTitle</span>:
+        {{ a.subTitle }}<br />
+        <span style="text-decoration: underline">Article Category</span>:
+        {{ a.category }}<br />
+        <span style="text-decoration: underline">Article Author</span>:
+        {{ a.author }}
+        <span style="text-decoration: underline">Date Published</span>:
+        {{ a.createdAt }}
+      </a>
+    </div>
+  </div>
 </div>

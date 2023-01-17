@@ -5,7 +5,7 @@ export interface Articles {
   category: String;
   body: string;
   author: String;
-  // publishDate: String;
+  createdAt: String;
   // imgId: number;
   // image?: any;
   // imageName: any;

@@ -115,6 +115,7 @@ export class ArticlesBodyComponent implements OnInit {
           category: '',
           author: '',
           body: '',
+          createdAt: '',
         };
 
         this.buildForm(this.article);

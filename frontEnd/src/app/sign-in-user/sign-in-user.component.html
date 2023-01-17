@@ -1,30 +1,13 @@
-<form class="frame" [formGroup]="form" (ngSubmit)="signIn()">
-  <div class="form-group">
-    <div>
-      <label class="field">email</label>
-      <input type="text" formControlName="email" />
-    </div>
-    <div>
-      <label class="field">Password</label>
-      <input type="password" formControlName="password" />
-    </div>
-    <button type="submit" class="btn btn-primary">Sign In</button>
-  </div>
-</form>
-<!-- <form class="frame" [formGroup]="form">
-  <h2>Login/h2>
+<h2>Sign In</h2>
 
+<form class="formFrame" [formGroup]="form" (ngSubmit)="signIn()">
   <div class="field">
-    <label>Email</label>
-    <input type="email" formControlName="email" />
+    <label>email</label>
+    <input type="text" formControlName="email" />
   </div>
-
   <div class="field">
     <label>Password</label>
     <input type="password" formControlName="password" />
   </div>
-
-  <div class="field">
-    <button (click)="send()" [disabled]="!form.valid">התחבר</button>
-  </div>
- -->
+  <button type="submit" class="btn btn-primary">Sign In</button>
+</form>
