@@ -8,10 +8,6 @@ async function getOneArticle(req, res) {
     if (!articleId) {
         return res.status(400).json('article Id not deliverd');
     }
-    // const article = await operations.getOneArticle(articleId);
-    // if (article != null)
-    //     return res.json(article);
-    // return res.status(500).json('error, no Article found');
 }
 
 

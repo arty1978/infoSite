@@ -7,7 +7,9 @@ const articleSchema = mongoose.Schema({
     category: String,
     body: String,
     author: String,
-    userId: String
+    userId: String,
+    createdAt: String,
+    updatedtedAt: String
 });
 
 
