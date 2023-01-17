@@ -61,11 +61,10 @@ async function updateUser(id, userData) {
     }
 }
 
-async function getOneUser(id, userData) {
+async function getOneUser(id) {
     try {
-        const user = await userModel.findOne({ _id: id }, userData);
+        const user = await userModel.findById(id);
         return user;
-
     }
     catch {
         return null;

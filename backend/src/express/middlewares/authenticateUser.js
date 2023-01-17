@@ -7,7 +7,7 @@ async function authenticateUser(req, res, next) {
         return res.status(401).json({ 'message': 'No token provided' });
     try {
         const userFromDb = jsonwebtoken.verify(token, 'webToken')
-        req.userID = userFromDb._id;
+        req.userID = userFromDb.userid;
         next();
     } catch {
         return res.status(401).json({ 'message': 'Invalid token' });

@@ -18,13 +18,14 @@ async function getAllArticles() {
     }
 }
 
-async function deleteArticle(id) {
-    try {
+async function deleteArticle(articleId, userId) {
 
-        const delArticle = await articleModel.deleteOne({
-            _id: id
+    try {
+        const result = await articleModel.findByIdAndDelete({
+            _id: articleId,
+            userId: userId
         });
-        return delArticle;
+        return result;
     } catch {
         return null;
     }

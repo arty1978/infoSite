@@ -7,6 +7,7 @@ const validateNewArticle = require('../../../joi/validateArticle')
 async function createArticle(req, res) {
 
     const result = validateNewArticle(req.body);
+    console.log(req.userID);
 
     if (result.err) return response.status(400).json(result.error.details[0].message);
     req.body.userId = req.userID;
