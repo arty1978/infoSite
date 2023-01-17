@@ -27,12 +27,10 @@ export class ArticlesComponent implements OnInit {
   constructor(private http: HttpService, private router: Router) {}
 
   ngOnInit(): void {
-    const sub = this.http
-      .get<Articles[]>('articles/getMyArticles')
-      .subscribe((data) => {
-        this.articles = data;
-        sub.unsubscribe();
-      });
+    const sub = this.http.get<Articles[]>('articles').subscribe((data) => {
+      this.articles = data;
+      sub.unsubscribe();
+    });
   }
 }
 // import { Controller, Get } from '@nestjs/common';

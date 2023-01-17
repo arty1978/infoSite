@@ -1,29 +1,32 @@
-<form *ngIf="form" class="frame" [formGroup]="form">
-  <h2 *ngIf="!user._id">Register Now</h2>
-  <!-- <h2>Register Now</h2> -->
+<h2>Register a new user</h2>
 
-  <div>
-    <label class="field">UserName</label>
+<form *ngIf="form" class="formFrame" [formGroup]="form">
+  <h3 *ngIf="!user._id">Fill the form for registartion</h3>
+
+  <div class="field">
+    <label>User Name:</label>
     <input type="text" formControlName="userName" />
   </div>
 
-  <div>
-    <label class="field">Full Name</label>
+  <div class="field">
+    <label>Full Name:</label>
     <input type="text" formControlName="fullName" />
   </div>
 
-  <div>
-    <label class="field">email</label>
+  <div class="field">
+    <label>Email:</label>
     <input type="text" formControlName="email" />
   </div>
 
-  <div>
-    <label class="field">Password</label>
+  <div class="field">
+    <label>Password:</label>
     <input type="password" formControlName="password" />
   </div>
-  <div>
-    <label class="field">Password confirmation</label>
+  <div class="field">
+    <label>Password Confirmation</label>
     <input type="password" formControlName="passwordConfirmation" />
   </div>
-  <div clas="field"><button type="submit" (click)="send()">Add</button></div>
+  <div>
+    <button type="submit" (click)="send()">Submit</button>
+  </div>
 </form>

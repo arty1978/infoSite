@@ -21,7 +21,10 @@
 
 <div class="wraper">
   <div class="gridContainer">
-    <div *ngFor="let a of articles; let i = index" class="item{{ i + 1 }}">
+    <div
+      *ngFor="let a of articles.slice(-9).reverse(); let i = index"
+      class="item{{ i + 1 }}"
+    >
       <a
         class="button"
         [routerLink]="['checkarticle', a._id]"

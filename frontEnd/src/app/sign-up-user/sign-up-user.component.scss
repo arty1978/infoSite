@@ -1,21 +1,34 @@
-.frame {
+h2 {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.formFrame {
     width: 400px;
     max-width: 100%;
     margin: 30px auto;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 0 6px #00000085;
-    padding: 12px;
+    padding: 20px;
+}
+
+h3 {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
 }
 
 .field {
-    padding: 8px;
+    padding: 15px;
+
 }
 
 label {
-    display: block;
     margin-bottom: 3px;
-    color: rgb(141, 155, 208);
-    text-decoration: underline;
+    margin-right: 8px;
+    color: rgb(86, 85, 85);
 }
 
 input,
@@ -26,19 +39,15 @@ textarea {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #616161;
-}
 
-h2 {
-    text-align: center;
-    color: #4e4e4e;
 }
 
 button {
     padding: 12px 16px;
     border-radius: 8px;
     border: none;
-    background: rgb(158, 173, 232);
-    color: white;
+    background: rgb(165, 232, 227);
+    color: rgb(86, 85, 85);
     font-size: 20px;
     cursor: pointer;
     width: 100%;
@@ -51,20 +60,6 @@ button[disabled] {
 
 button:hover {
     box-shadow: 0 0 6px #94949485;
-    background: rgb(158, 173, 232);
-}
-
-input.ng-invalid.ng-dirty {
-    border: 1px solid red;
-}
-
-.editImg {
-
-    width: 95%;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 8px auto;
-    box-shadow: 0 0 3px black;
-    padding: 0;
-    display: block;
+    background: rgb(3, 146, 190);
+    color: white;
 }
