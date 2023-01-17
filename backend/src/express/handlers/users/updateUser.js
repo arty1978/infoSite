@@ -4,10 +4,11 @@ const operations = require('../../../mongoose/controllers/UserOperations');
 
 async function updateUser(req, res) {
 
-    const userId = req.body._id;
+    const userId = req.query._id;
     if (!userId) {
         return res.status(400).json('user Id not deliverd');
     }
+    req.body.updatedtedAt = new Date().toLocaleString();
     //פניה לשכבת בסיס נתונים
     const result = await operations.updateUser(userId, req.body);
     if (result != null)

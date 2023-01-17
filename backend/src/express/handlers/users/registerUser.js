@@ -12,6 +12,7 @@ async function createUser(req, res) {
     if (error)
         return res.status(400).json(error.details[0].message);
 
+    req.body.createdAt = new Date().toLocaleString();
     const userFromDb = await operations.createAUserInMongoDb(req.body)
     console.log(userFromDb, 'userFromDb before status500');
     if (!userFromDb) {

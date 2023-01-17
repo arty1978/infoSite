@@ -8,7 +8,9 @@ const userSchema = mongoose.Schema({
     fullName: String,
     email: { type: String, unique: true },
     password: String,
-    passwordConfirmation: String
+    passwordConfirmation: String,
+    createdAt: String,
+    updatedtedAt: String
 });
 userSchema.plugin(uniqueValidator);
 userSchema.pre('save', (next) => {

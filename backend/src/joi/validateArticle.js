@@ -6,7 +6,6 @@ const articleSchema = joi.object({
     category: joi.string().required(),
     body: joi.string().required(),
     author: joi.string().required(),
-    createdAt: joi.string().required()
 });
 
 function validateNewArticle(article) {
