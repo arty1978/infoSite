@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 import { SignInUserComponent } from './sign-in-user/sign-in-user.component';
 import { UsersComponent } from './users/users.component';
+import { FullArticleComponent } from './full-article/full-article.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UsersComponent } from './users/users.component';
     SignUpUserComponent,
     SignInUserComponent,
     UsersComponent,
+    FullArticleComponent,
   ],
   imports: [
     BrowserModule,

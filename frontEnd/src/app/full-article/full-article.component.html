@@ -1,0 +1,22 @@
+<div class="wraper">
+  <div>
+    <span style="text-decoration: underline">Article Title</span>
+    {{ article.title }}
+    <br />
+    <br />
+    <span style="text-decoration: underline">Article Subtitle</span>
+    {{ article.subTitle }}
+    <br />
+    <br />
+    <span style="text-decoration: underline">Author</span>
+    {{ article.author }}
+    <br />
+    <br />
+    <span style="text-decoration: underline">date</span>
+    {{ article.createdAt }}
+    <br />
+    <br />
+    {{ article.body }}
+  </div>
+</div>
+<h2 [routerLink]="['']">Click here to return to the Home Page</h2>

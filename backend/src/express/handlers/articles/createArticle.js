@@ -1,6 +1,5 @@
 const operations = require('../../../mongoose/controllers/articleOperations');
 const validateNewArticle = require('../../../joi/validateArticle')
-// const moment = require('moment');
 
 //Meta data for visual studio code
 /** @type {import("express").RequestHandler} */

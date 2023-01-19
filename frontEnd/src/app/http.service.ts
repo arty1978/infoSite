@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class HttpService {
   }
 
   post<T>(route: string, body: any) {
+    console.log(`${this.url}/${route}`, body, this.options, 'http post');
     return this.httpClient.post<T>(`${this.url}/${route}`, body, this.options);
   }
 

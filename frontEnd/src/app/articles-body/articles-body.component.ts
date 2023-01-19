@@ -101,7 +101,7 @@ export class ArticlesBodyComponent implements OnInit {
 
       if (id) {
         const sub = this.http
-          .get<Articles>(`articles/findarticle/${id}`)
+          .get<Articles>(`articles/findarticle`)
           .subscribe((data) => {
             this.article = data;
             this.buildForm(this.article);

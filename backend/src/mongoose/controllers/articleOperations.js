@@ -67,15 +67,15 @@ async function getArticlesByUserId(userId) {
     }
 }
 
-// async function getOneArticle(id, articleData) {
-//     try {
-//         const article = await articleModel.findOne({ _id: id }, articleData);
-//         return article;
-//     }
-//     catch {
-//         return null;
-//     }
-// }
+async function getOneArticle(id, articleData) {
+    try {
+        const article = await articleModel.findOne({ _id: id }, articleData);
+        return article;
+    }
+    catch {
+        return null;
+    }
+}
 
 
 module.exports = {
@@ -85,6 +85,6 @@ module.exports = {
     updateArticle,
     getOneByUserIDAndarticleID,
     getArticlesByUserId,
-    // getOneArticle
+    getOneArticle
 }
 

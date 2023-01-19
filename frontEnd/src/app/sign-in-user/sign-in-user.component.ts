@@ -23,7 +23,8 @@ export class SignInUserComponent implements OnInit {
       .post<Users>('users/signin', data)
       .subscribe((item) => {
         sub.unsubscribe();
-        this.router.navigate(['articles']);
+        this.router.navigate(['users']);
+        console.log(sub, 'inside post method signin.ts');
       });
   }
   buildForm(item: Users) {
