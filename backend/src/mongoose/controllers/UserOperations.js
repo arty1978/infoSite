@@ -5,7 +5,6 @@ const bcryptjs = require('bcryptjs');
 // const operations= require('./')
 
 async function createAUserInMongoDb(userDetails) {
-    console.log(userDetails, 'userOpeartion createAUserInMongoDb function');
     try {
         userDetails.password = bcryptjs.hashSync(userDetails.password);
         userDetails.passwordConfirmation = bcryptjs.hashSync(userDetails.passwordConfirmation);
@@ -18,6 +17,7 @@ async function createAUserInMongoDb(userDetails) {
 async function signInUser(email, password) {
     try {
         userFromDb = await userModel.findOne({ email: email });
+        console.log(userFromDb);
         if (!userFromDb)
             return null;
         const result = bcryptjs.compareSync(password, userFromDb.password);

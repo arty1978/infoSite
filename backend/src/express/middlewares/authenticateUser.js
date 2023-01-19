@@ -12,9 +12,11 @@ async function authenticateUser(req, res, next) {
         return res.status(401).json({ 'message': 'Invalid token' });
     }
 
+}
 
+module.exports = authenticateUser;
 
-    //  .  נשלח טוקן .  
+    //  .  נשלח טוקן .
     // const token = req.headers.token;
     // if (!token)
     //     return response.status(401).json({ 'message': 'No token provided' });
@@ -29,7 +31,3 @@ async function authenticateUser(req, res, next) {
     //     return response.status(401).json({ 'message': 'Invalid token' });
     // }
 
-
-}
-
-module.exports = authenticateUser;

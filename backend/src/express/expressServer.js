@@ -24,10 +24,15 @@ server.use(cors({
     origin: 'http://localhost:4200',
     methods: 'GET,PUT,POST,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type, Accept',
-}
-));
+    allowedHeaders: 'Content-Type, Accept, token',
+}));
 
+server.options('*', (req, res) => {
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, token');
+    res.setHeader('Access-Control-Max-Age', '3600');
+    res.status(204).send();
+});
 
 server.post('/articles/create', authenticateUser, createArticle);//3
 server.get('/articles', getArticles);

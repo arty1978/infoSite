@@ -16,12 +16,18 @@ export class SignInUserComponent implements OnInit {
   form: FormGroup;
 
   signIn() {
-    const data = this.form.value;
+    const data = {
+      email: this.form.value.email,
+      password: this.form.value.password,
+    };
     console.log(data, 'inside signIn function');
 
     const sub = this.http
-      .post<Users>('users/signin', data)
+      .post<string>('users/signin', data)
       .subscribe((item) => {
+        localStorage.setItem('token', item);
+        console.log(item);
+
         sub.unsubscribe();
         this.router.navigate(['users']);
         console.log(sub, 'inside post method signin.ts');
