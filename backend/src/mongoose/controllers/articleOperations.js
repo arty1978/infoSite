@@ -44,7 +44,18 @@ async function updateArticle(cardId, userId, articleData) {
     }
 }
 
+async function getOneArticle(id, articleData) {
+    try {
+        console.log(id, articleData, 'id+article');
+        const article = await articleModel.findById(id, articleData);
+        return article;
+    }
+    catch {
+        return null;
+    }
+}
 async function getOneByUserIDAndarticleID(userId, articleId) {
+    console.log('getOneByUserIDAndarticleID', userId, articleId);
     try {
         const oneArticle = await articleModel.findOne({
             userId: userId,
@@ -67,15 +78,6 @@ async function getArticlesByUserId(userId) {
     }
 }
 
-async function getOneArticle(id, articleData) {
-    try {
-        const article = await articleModel.findOne({ _id: id }, articleData);
-        return article;
-    }
-    catch {
-        return null;
-    }
-}
 
 
 module.exports = {

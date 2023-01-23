@@ -20,26 +20,15 @@ export class FullArticleComponent {
   ) {
     this.sub = this.route.params.subscribe((data) => {
       const id: any = data['id'];
-      console.log(id);
 
       if (id) {
         const sub = this.http
-          .get<Articles>(`articles/findarticle/${id}`)
+          .get<Articles>(`articles/findarticle?_id=${id}`)
           .subscribe((data) => {
             this.article = data;
+            console.log(this.article, 'full article.ts ');
             sub.unsubscribe();
           });
-        // this.sub = this.route.params.subscribe((data) => {
-        //   const id = data;
-        //   console.log(id);
-
-        //   if (id) {
-        //     const sub = this.http
-        //       .get<Articles>(`articles/findarticle/${id}`)
-        //       .subscribe((data) => {
-        //         this.article = data;
-        //         sub.unsubscribe();
-        //       });
       }
     });
   }

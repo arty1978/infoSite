@@ -12,6 +12,9 @@ async function signInUser(req, res) {
         return res.status(500).json('no user found');
     const token = jsonwebtoken.sign({ userid: userFromDb._id }, 'webToken');
     console.log(token, 'this is token');
-    return res.json(token);
+    return res.json({
+        token,
+        user: userFromDb
+    });
 }
 module.exports = signInUser;

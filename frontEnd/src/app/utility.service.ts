@@ -5,10 +5,17 @@ import { Users } from './users/users.interface';
   providedIn: 'root',
 })
 export class UtilityService {
-  user: Users | undefined;
+  private user?: Users;
 
-  reflaction<T>(obj: T): T {
-    return JSON.parse(JSON.stringify(obj));
+  setUser(user?: Users) {
+    this.user = user;
+    console.log(user, 'user from utility in set');
+  }
+
+  getUser() {
+    console.log(this.user, 'user from utility in get');
+
+    return this.user;
   }
 
   constructor() {}

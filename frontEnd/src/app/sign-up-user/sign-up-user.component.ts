@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { Users } from '../users/users.interface';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-sign-up-user',

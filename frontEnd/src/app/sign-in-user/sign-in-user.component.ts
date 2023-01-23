@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Users } from '../users/users.interface';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SignIn } from './signIn.interFace';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-sign-in-user',
   templateUrl: './sign-in-user.component.html',
   styleUrls: ['./sign-in-user.component.scss'],
 })
-export class SignInUserComponent implements OnInit {
+export class SignInUserComponent {
   sub: Subscription;
   user: Users;
   form: FormGroup;
@@ -23,13 +25,16 @@ export class SignInUserComponent implements OnInit {
     console.log(data, 'inside signIn function');
 
     const sub = this.http
-      .post<string>('users/signin', data)
+      .post<SignIn>('users/signin', data)
       .subscribe((item) => {
-        localStorage.setItem('token', item);
-        console.log(item);
+        localStorage.setItem('token', item.token);
+
+        console.log(item, 'token of logged user');
+        this.http.setToken();
+        this.utility.setUser(item.user);
 
         sub.unsubscribe();
-        this.router.navigate(['users']);
+        this.router.navigate(['articles']);
         console.log(sub, 'inside post method signin.ts');
       });
   }
@@ -42,10 +47,12 @@ export class SignInUserComponent implements OnInit {
       password: new FormControl(item.password, [Validators.required]),
     });
   }
+
   constructor(
     private http: HttpService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public utility: UtilityService
   ) {
     this.user = {
       _id: 0,

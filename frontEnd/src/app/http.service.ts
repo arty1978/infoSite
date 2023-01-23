@@ -12,10 +12,14 @@ export class HttpService {
   };
 
   constructor(private httpClient: HttpClient) {
+    this.setToken();
+  }
+  setToken() {
     this.httpOptions.headers = this.httpOptions.headers.set(
       'Content-Type',
       'application/json'
     );
+
     const token = localStorage.getItem('token');
     if (token) {
       this.httpOptions.headers = this.httpOptions.headers.set('token', token);
@@ -23,6 +27,7 @@ export class HttpService {
   }
 
   get<T>(route: string) {
+    console.log(this.httpOptions);
     return this.httpClient.get<T>(`${this.url}/${route}`, this.httpOptions);
   }
 

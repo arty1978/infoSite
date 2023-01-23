@@ -5,4 +5,7 @@
     [routerLink]="item.route"
     >{{ item.title }}</a
   >
+  <section class="hello" *ngIf="utility.getUser()">
+    Welcome {{ utility.getUser()?.userName }}
+  </section>
 </nav>

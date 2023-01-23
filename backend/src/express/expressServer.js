@@ -37,10 +37,10 @@ server.options('*', (req, res) => {
 server.post('/articles/create', authenticateUser, createArticle);//3
 server.get('/articles', getArticles);
 server.delete('/articles/deleteone/:id', authenticateUser, deleteArticle);
-server.put('/articles/updateone', updateArticle)
-server.get('/articles/findarticle', authenticateUser, getOneByUserIDAndarticleID);
+server.put('/articles/updateone', authenticateUser, updateArticle)
+server.get('/articles/findOneArticle', authenticateUser, getOneByUserIDAndarticleID);
 server.get('/articles/getMyArticles', authenticateUser, getArticlesByUserId);
-server.get('/articles/findarticle/:id', getOneArticle);
+server.get('/articles/findarticle', getOneArticle);
 
 server.get('/users', getUsers);
 server.post('/users/create', signUpUser);

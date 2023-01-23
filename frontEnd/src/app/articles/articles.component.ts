@@ -16,10 +16,11 @@ export class ArticlesComponent implements OnInit {
   }
   remove(item: Articles) {
     console.log(item);
+    localStorage.getItem('token');
     const sub = this.http
-      .delete<void>(`articles/deleteone/${item._id}`)
+      .delete<Articles>(`articles/deleteone/${item._id}`)
       .subscribe((data) => {
-        const i = this.articles.findIndex((x) => x._id == item._id);
+        const i = this.articles.findIndex((x) => x._id === item._id);
         this.articles.splice(i, 1);
         sub.unsubscribe();
       });
@@ -63,4 +64,15 @@ export class ArticlesComponent implements OnInit {
 //     };
 //     // return this.appService.getHello();
 //   }
+// }
+// edit(item: Articles) {
+//   this.selectedArticle = item;
+//   this.updateSelected(item._id);
+//   console.log(item._id, 'edit');
+
+//   // this.router.navigate(['articles-body', item._id]);
+// }
+// updateSelected(id: string) {
+//   this.router.navigate(['articles-body', id]);
+//   console.log(id, 'updateSelected');
 // }

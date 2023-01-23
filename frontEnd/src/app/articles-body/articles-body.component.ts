@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Articles } from '../articles/articles.interface';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SignInUserComponent } from '../sign-in-user/sign-in-user.component';
+
 // import { DatePipe } from '@angular/common';
 
 @Component({
@@ -22,14 +24,18 @@ export class ArticlesBodyComponent implements OnInit {
   inputElem!: ElementRef<HTMLInputElement>;
 
   update() {
+    console.log(this.form);
+
     for (const k in this.form.value) {
       (this.article as any)[k] = this.form.value[k];
     }
+
     const sub = this.http
-      .put<void>(`articles/updateone`, this.article)
+      .put<void>(`articles/updateone?_id=${this.article._id}`, this.article)
       .pipe()
       .subscribe(
         () => {
+          console.log(this.article, 'put method');
           sub.unsubscribe();
           this.router.navigate(['articles']);
         }
@@ -57,6 +63,7 @@ export class ArticlesBodyComponent implements OnInit {
   }
 
   buildForm(item: Articles) {
+    console.log('inside buildForm');
     this.form = new FormGroup({
       title: new FormControl(item.title, [Validators.required]),
       subTitle: new FormControl(item.subTitle, [Validators.required]),
@@ -93,17 +100,20 @@ export class ArticlesBodyComponent implements OnInit {
   constructor(
     private http: HttpService,
     private route: ActivatedRoute,
-    // private date: DatePipe,
     private router: Router
   ) {
     this.sub = this.route.params.subscribe((data) => {
       const id: any = data['id'];
+      console.log(id);
 
       if (id) {
         const sub = this.http
-          .get<Articles>(`articles/findarticle`)
+          .get<Articles>(`articles/findOneArticle?_id=${id}`)
           .subscribe((data) => {
+            console.log(sub, 'line 107 in the get method');
             this.article = data;
+            console.log(this.article);
+
             this.buildForm(this.article);
             sub.unsubscribe();
           });

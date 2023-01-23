@@ -17,6 +17,7 @@ import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 import { SignInUserComponent } from './sign-in-user/sign-in-user.component';
 import { UsersComponent } from './users/users.component';
 import { FullArticleComponent } from './full-article/full-article.component';
+import { UtilityService } from './utility.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { FullArticleComponent } from './full-article/full-article.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [HttpService, DatePipe],
+  providers: [HttpService, DatePipe, UtilityService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
