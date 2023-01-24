@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Articles } from './articles.interface';
-
+import { SignIn } from '../sign-in-user/signIn.interFace';
+// import { SignInUserComponent } from '../sign-in-user/sign-in-user.component';
+// import { UtilityService } from '../utility.service';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
@@ -10,6 +12,7 @@ import { Articles } from './articles.interface';
 })
 export class ArticlesComponent implements OnInit {
   articles: Articles[] = [];
+  signIn: SignIn;
 
   edit(item: Articles) {
     this.router.navigate(['articles-body', item._id]);
@@ -27,11 +30,16 @@ export class ArticlesComponent implements OnInit {
   }
   constructor(private http: HttpService, private router: Router) {}
 
-  ngOnInit(): void {
-    const sub = this.http.get<Articles[]>('articles').subscribe((data) => {
-      this.articles = data;
-      sub.unsubscribe();
-    });
+  ngOnInit() {
+    localStorage.getItem('token');
+    const userId = localStorage.getItem('user');
+
+    const sub = this.http
+      .get<Articles[]>(`articles/getMyArticles?_id=${userId}`)
+      .subscribe((data) => {
+        this.articles = data;
+        sub.unsubscribe();
+      });
   }
 }
 // import { Controller, Get } from '@nestjs/common';

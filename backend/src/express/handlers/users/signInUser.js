@@ -17,4 +17,16 @@ async function signInUser(req, res) {
         user: userFromDb
     });
 }
-module.exports = signInUser;
+function signInStatus(req, res) {
+    if (req.body.user) {
+        res.send({
+            status: 'success',
+            user: req.body.user
+        });
+    } else {
+        res.send({
+            status: 'error'
+        })
+    }
+}
+module.exports = signInUser, signInStatus;

@@ -9,11 +9,11 @@ export class UtilityService {
 
   setUser(user?: Users) {
     this.user = user;
-    console.log(user, 'user from utility in set');
+    // console.log(user, 'user from utility in set');
   }
 
   getUser() {
-    console.log(this.user, 'user from utility in get');
+    // console.log(this.user, 'user from utility in get');
 
     return this.user;
   }

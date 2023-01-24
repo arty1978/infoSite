@@ -12,21 +12,21 @@ import { UtilityService } from './utility.service';
 })
 export class AppComponent {
   title = 'frontEnd';
-  // logout() {
-  //   const sub = this.http
-  //     .get('logout')
-  //     .pipe(
-  //       finalize(() => {
-  //         if (sub?.unsubscribe) {
-  //           sub.unsubscribe();
-  //         }
-  //       })
-  //     )
-  //     .subscribe(() => {
-  //       this.utility.setUser();
-  //       this.router.navigate(['login']);
-  //     });
-  // }
+  logout() {
+    const sub = this.http
+      .get('signOut')
+      .pipe(
+        finalize(() => {
+          if (sub?.unsubscribe) {
+            sub.unsubscribe();
+          }
+        })
+      )
+      .subscribe(() => {
+        this.utility.setUser();
+        this.router.navigate(['sign-in-user']);
+      });
+  }
 
   constructor(
     public utility: UtilityService,
@@ -36,7 +36,7 @@ export class AppComponent {
 
   ngOnInit() {
     const sub = this.http
-      .get<SignIn>('login')
+      .get<SignIn>('users/signin')
       .pipe(
         finalize(() => {
           if (sub?.unsubscribe) {
@@ -46,7 +46,7 @@ export class AppComponent {
       )
       .subscribe((data) => {
         if (data.status == 'error') {
-          this.router.navigate(['login']);
+          this.router.navigate(['sign-in-user']);
         } else {
           this.utility.setUser(data.user);
         }

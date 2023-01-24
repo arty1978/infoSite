@@ -17,6 +17,7 @@ const deleteUser = require('./handlers/users/deleteUser');
 const updateUser = require('./handlers/users/updateUser');
 const getOneUser = require('./handlers/users/findUser');
 const authenticateUser = require('./middlewares/authenticateUser');//1
+const signInStatus = require('./handlers/users/signInUser')
 
 server.use(express.json());
 server.use(cors({
@@ -27,11 +28,12 @@ server.use(cors({
     allowedHeaders: 'Content-Type, Accept, token',
 }));
 
-server.options('*', (req, res) => {
+server.options('*', (req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, token');
     res.setHeader('Access-Control-Max-Age', '3600');
     res.status(204).send();
+    next();
 });
 
 server.post('/articles/create', authenticateUser, createArticle);//3
@@ -45,6 +47,7 @@ server.get('/articles/findarticle', getOneArticle);
 server.get('/users', getUsers);
 server.post('/users/create', signUpUser);
 server.post('/users/signin', signinUser);
+server.get('/users/signin', signInStatus);
 server.delete('/users/deleteone/:id', authenticateUser, deleteUser);
 server.get('/users/finduser', authenticateUser, getOneUser);//2
 server.put('/users/updateone', authenticateUser, updateUser)
