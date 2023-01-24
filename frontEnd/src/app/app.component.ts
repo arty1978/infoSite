@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { HttpService } from './http.service';
-import { SignIn } from './sign-in-user/signIn.interFace';
 import { UtilityService } from './utility.service';
 
 @Component({
@@ -33,13 +32,6 @@ export class AppComponent {
     private http: HttpService,
     private router: Router
   ) {}
-
-  signOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.utility.removeUser();
-    this.router.navigate(['/signin']);
-  }
 
   // ngOnInit() {
   //   const sub = this.http

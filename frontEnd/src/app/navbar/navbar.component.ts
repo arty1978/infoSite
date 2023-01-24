@@ -12,10 +12,16 @@ export class NavbarComponent implements OnInit {
   menu: Menu[] = [
     { route: '/', title: 'Home' },
     { route: '/articles', title: 'Articles' },
-    { route: '/sign-in-user', title: 'SignIn' },
-    { route: '/sign-up-user', title: 'SignUp' },
+    // { route: '/sign-in-user', title: 'SignIn' },
+    // { route: '/sign-up-user', title: 'SignUp' },
   ];
 
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.utility.removeUser();
+    // this.router.navigate(['/signin']);
+  }
   constructor(public utility: UtilityService) {}
   ngOnInit(): void {}
 }

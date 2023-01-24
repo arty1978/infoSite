@@ -5,7 +5,14 @@
     [routerLink]="item.route"
     >{{ item.title }}</a
   >
-  <section class="hello" *ngIf="utility.getUser()">
-    Welcome {{ utility.getUser() }}
-  </section>
+
+  <p *ngIf="!utility.user">
+    <a routerLink="sign-in-user">Login</a> |
+    <a routerLink="sign-up-user">Sign up</a>
+  </p>
+
+  <p *ngIf="utility.user">
+    <a routerLink="" (click)="signOut()">Logout</a>
+  </p>
+  <h1>Welcome {{ utility.user ? utility.user.fullName : "אורח" }}!</h1>
 </nav>
