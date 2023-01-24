@@ -7,6 +7,7 @@ async function authenticateUser(req, res, next) {
     try {
         const userFromDb = jsonwebtoken.verify(token, 'webToken')
         req.userID = userFromDb.userid;
+        req.author = userFromDb.fullName;
         next();
     } catch {
         return res.status(401).json({ 'message': 'Invalid token' });
@@ -16,18 +17,4 @@ async function authenticateUser(req, res, next) {
 
 module.exports = authenticateUser;
 
-    //  .  נשלח טוקן .
-    // const token = req.headers.token;
-    // if (!token)
-    //     return response.status(401).json({ 'message': 'No token provided' });
-
-    // try {
-    //     const data = jsonwebtoken.verify(token, 'webToken');
-    //     req.userID = data.userid;
-    //     next();
-    // }
-    // catch
-    // {
-    //     return response.status(401).json({ 'message': 'Invalid token' });
-    // }
 

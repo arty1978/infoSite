@@ -17,11 +17,11 @@
     <input type="text" formControlName="category" />
   </div>
 
-  <div>
+  <!-- <div>
     <label class="field">Author:</label>
     <input type="text" formControlName="author" />
   </div>
-
+ -->
   <div class="field">
     <label>Content:</label>
     <textarea formControlName="body" cols="30" rows="10"></textarea>
@@ -34,28 +34,3 @@
     <button *ngIf="!article._id" (click)="add()">Add</button>
   </div>
 </form>
-<!-- <button *ngIf="!article.id" (click)="add()" [disabled]="!form.valid">
-  Add
-</button> -->
-<!-- <div>
-    <label class="field">Publish date:</label>
-    <input type="text" formControlName="publishDate" />
-  </div> -->
-<!-- <input #imageInput [hidden]="true" type="file" (change)="imageChange()" /> -->
-
-<!-- <div *ngIf="articles.imgId">
-    <img
-      [src]="'http://localhost:4000/articles/image/' + articles.imgId"
-      class="editImg"
-      (click)="selectImage()"
-    />
-  </div> -->
-
-<!-- <div *ngIf="alternativeImage">
-    <h3 *ngIf="articles.imgId">Change Image</h3>
-    <img [src]="alternativeImage" class="editImg" (click)="selectImage()" />
-  </div>
- -->
-<!-- <div *ngIf="!articles.imgId && !alternativeImage" class="editImg">
-    <button (click)="selectImage()">Upload Image</button>
-  </div> -->

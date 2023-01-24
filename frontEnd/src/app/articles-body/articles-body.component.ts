@@ -4,7 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Articles } from '../articles/articles.interface';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SignInUserComponent } from '../sign-in-user/sign-in-user.component';
+// import { SignInUserComponent } from '../sign-in-user/sign-in-user.component';
+import { Users } from '../users/users.interface';
+import { UsersComponent } from '../users/users.component';
 
 // import { DatePipe } from '@angular/common';
 
@@ -17,6 +19,7 @@ export class ArticlesBodyComponent implements OnInit {
   sub: Subscription;
   article: Articles;
   form: FormGroup;
+  author: Users;
   alternativeImage?: string | ArrayBuffer | null;
   alternativeImageName?: string;
 
@@ -68,7 +71,7 @@ export class ArticlesBodyComponent implements OnInit {
       title: new FormControl(item.title, [Validators.required]),
       subTitle: new FormControl(item.subTitle, [Validators.required]),
       category: new FormControl(item.category, [Validators.required]),
-      author: new FormControl(item.author, [Validators.required]),
+      // author: new FormControl(item.author, [Validators.required]),
       // publishDate: new FormControl(
       //   this.date.transform(item.publishDate, 'yyyy-MM-dd'),
       //   [Validators.required]
