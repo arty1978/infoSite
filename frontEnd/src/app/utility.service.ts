@@ -13,10 +13,10 @@ export class UtilityService {
   }
 
   getUser() {
-    // console.log(this.user, 'user from utility in get');
-
     return this.user;
   }
-
+  removeUser() {
+    this.user = undefined;
+  }
   constructor() {}
 }

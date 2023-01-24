@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../utility.service';
 import { Router } from '@angular/router';
 import { Menu } from './navbar.interface';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -16,7 +15,7 @@ export class NavbarComponent implements OnInit {
     { route: '/sign-in-user', title: 'SignIn' },
     { route: '/sign-up-user', title: 'SignUp' },
   ];
-  constructor(public utility: UtilityService) {}
 
+  constructor(public utility: UtilityService) {}
   ngOnInit(): void {}
 }

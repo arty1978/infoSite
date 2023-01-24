@@ -69,24 +69,3 @@ export class SignInUserComponent {
 
   ngOnInit() {}
 }
-// const data = {
-//   email: this.form.value.email,
-//   password: this.form.value.password,
-// };
-// // const expirationDate = 4 * 60 * 60;
-
-// console.log(data, 'inside signIn function');
-
-// const sub = this.http
-//   .post<SignIn>('users/signin', data)
-//   .subscribe((item) => {
-//     console.log(item, 'token of logged user');
-//     this.cookieService.set('token', item.token); //, expirationDate
-//     this.http.setToken();
-//     this.utility.setUser(item.user);
-//     console.log(item.user, 'inside signin component');
-
-//     sub.unsubscribe();
-//     this.router.navigate(['articles']);
-//     console.log(sub, 'inside post method signin.ts');
-//   });

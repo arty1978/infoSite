@@ -34,22 +34,29 @@ export class AppComponent {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    const sub = this.http
-      .get<SignIn>('users/signin')
-      .pipe(
-        finalize(() => {
-          if (sub?.unsubscribe) {
-            sub.unsubscribe();
-          }
-        })
-      )
-      .subscribe((data) => {
-        if (data.status == 'error') {
-          this.router.navigate(['sign-in-user']);
-        } else {
-          this.utility.setUser(data.user);
-        }
-      });
+  signOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.utility.removeUser();
+    this.router.navigate(['/signin']);
   }
+
+  // ngOnInit() {
+  //   const sub = this.http
+  //     .get<SignIn>('users/signin')
+  //     .pipe(
+  //       finalize(() => {
+  //         if (sub?.unsubscribe) {
+  //           sub.unsubscribe();
+  //         }
+  //       })
+  //     )
+  //     .subscribe((data) => {
+  //       if (data.status == 'error') {
+  //         this.router.navigate(['sign-in-user']);
+  //       } else {
+  //         this.utility.setUser(data.user);
+  //       }
+  //     });
+  // }
 }
