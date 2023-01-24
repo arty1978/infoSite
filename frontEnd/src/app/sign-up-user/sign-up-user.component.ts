@@ -33,17 +33,22 @@ export class SignUpUserComponent implements OnInit {
       fullName: new FormControl(item.fullName, [Validators.required]),
       email: new FormControl(item.email, [
         Validators.required,
-        Validators.email,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
       ]),
-      password: new FormControl(item.password, [Validators.required]),
+      password: new FormControl(item.password, [
+        Validators.required,
+        Validators.pattern(
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        ),
+      ]),
       passwordConfirmation: new FormControl('', {
         validators: [Validators.required, this.passwordMatchValidator],
       }),
     });
   }
-  passwordMatchValidator(form: FormControl): { [key: string]: any } | null {
-    const password = form.value;
-    const passwordConfirmation = form.value;
+  passwordMatchValidator(form: FormGroup): { [key: string]: any } | null {
+    const password = form.get('password')?.value;
+    const passwordConfirmation = form.get('passwordConfirmation')?.value;
 
     if (password !== passwordConfirmation) {
       return { passwordMismatch: true };

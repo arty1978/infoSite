@@ -1,7 +1,7 @@
 <nav>
   <a
     *ngFor="let item of menu"
-    [class.active]="active == item.route"
+    [class.active]="active === item.route"
     [routerLink]="item.route"
     >{{ item.title }}</a
   >
@@ -11,8 +11,7 @@
     <a routerLink="sign-up-user">Sign up</a>
   </p>
 
-  <p *ngIf="utility.user">
-    <a routerLink="" (click)="signOut()">Logout</a>
-  </p>
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
+
   <h1>Welcome {{ utility.user ? utility.user.fullName : "Dear Visitor" }}!</h1>
 </nav>
