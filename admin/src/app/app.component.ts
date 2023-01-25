@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { finalize } from 'rxjs';
 import { HttpService } from './http.service';
 import { UtilityService } from './utility.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'frontEnd';
+  title = 'admin';
   logout() {
     const sub = this.http
       .get('signOut')
@@ -23,7 +23,7 @@ export class AppComponent {
       )
       .subscribe(() => {
         this.utility.setUser();
-        this.router.navigate(['sign-in-user']);
+        this.router.navigate(['login-admin']);
       });
   }
 

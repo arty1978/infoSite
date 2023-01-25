@@ -6,10 +6,9 @@
     [hidden]="item.isConnected && !utility.user"
     >{{ item.title }}</a
   >
-  <p *ngIf="!utility.user">
-    <a routerLink="sign-in-user">Login</a>
-    <a routerLink="sign-up-user">Sign up</a>
-  </p>
+  <!-- <p *ngIf="!utility.user">
+    <a routerLink="">Login</a>
+  </p> -->
 
   <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
 

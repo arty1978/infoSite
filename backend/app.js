@@ -1,7 +1,3 @@
-// import express from 'express';
-// import mongoose from 'mongoose';
-
-// export { express, mongoose };
 require('./src/express/expressServer.js');
 require('./src/mongoose/db/connectToDb');
 

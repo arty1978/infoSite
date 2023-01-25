@@ -2,7 +2,6 @@
 const userModel = require("../models/userModel");
 const bcryptjs = require('bcryptjs');
 
-// const operations= require('./')
 
 async function createAUserInMongoDb(userDetails) {
     try {

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const server = express();
 
+
 const createArticle = require('./handlers/articles/createArticle');
 const getArticles = require('./handlers/articles/getArticles');
 const getArticlesByUserId = require('./handlers/articles/getMyArticles');
@@ -18,6 +19,8 @@ const updateUser = require('./handlers/users/updateUser');
 const getOneUser = require('./handlers/users/findUser');
 const authenticateUser = require('./middlewares/authenticateUser');//1
 const signInStatus = require('./handlers/users/signInUser')
+const signInAdmin = require('./handlers/admin/signInAdmin');
+const registerAdmin = require('./handlers/admin/registerAdmin')
 
 server.use(express.json());
 server.use(cors({
@@ -51,6 +54,9 @@ server.get('/users/signin', signInStatus);
 server.delete('/users/deleteone/:id', authenticateUser, deleteUser);
 server.get('/users/finduser', authenticateUser, getOneUser);//2
 server.put('/users/updateone', authenticateUser, updateUser)
+
+server.post('/admin/signin', signInAdmin);
+server.post('/admin/create', registerAdmin);
 
 
 server.listen(3900, () => console.log('connected to express server on port 3900'));
