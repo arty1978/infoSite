@@ -1,23 +1,27 @@
 <form *ngIf="form" class="frame" [formGroup]="form">
-  <h2 *ngIf="user._id">Edit Article</h2>
+  <h2 *ngIf="user._id">Edit User</h2>
   <div>
-    <label class="field">Title</label>
-    <input type="text" formControlName="title" />
+    <label class="field">User Name</label>
+    <input type="text" formControlName="userName" />
   </div>
 
   <div>
-    <label class="field">Subtitle</label>
-    <input type="text" formControlName="subTitle" />
+    <label class="field">FullName</label>
+    <input type="" formControlName="fullName" />
   </div>
 
   <div>
-    <label class="field">Article Category:</label>
-    <input type="text" formControlName="category" />
+    <label class="field">Email</label>
+    <input type="email" formControlName="email" />
   </div>
 
-  <div class="field">
-    <label>Content:</label>
-    <textarea formControlName="body" cols="30" rows="10"></textarea>
+  <div>
+    <label class="field">Password</label>
+    <input type="text" formControlName="password" />
+  </div>
+  <div>
+    <label class="field">Password Confirmation</label>
+    <input type="text" formControlName="passwordConfirmation" />
   </div>
 
   <div class="field">

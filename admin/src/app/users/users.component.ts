@@ -13,7 +13,9 @@ export class UsersComponent {
   user: Users[] = [];
   signIn: SignIn;
   edit(item: Users) {
-    this.router.navigate(['users-body', item._id]);
+    console.log(item._id, '!!!');
+    this.router.navigate(['user-body', item._id]);
+    // this.router.navigateByUrl(`user-body?id=${item._id}`);
   }
   remove(item: Users) {
     console.log(item);

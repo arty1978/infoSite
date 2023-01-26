@@ -54,7 +54,7 @@ async function deleteUser(id) {
 async function updateUser(id, userData) {
     try {
 
-        const updatedUser = await userModel.findOneAndUpdate({ _id: id }, userData);
+        const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
         return updatedUser;
     }
     catch
@@ -63,9 +63,11 @@ async function updateUser(id, userData) {
     }
 }
 
-async function getOneUser(id) {
+async function getOneUser(id, userData) {
+    console.log(id, '$$$');
     try {
-        const user = await userModel.findById(id);
+        const user = await userModel.findById(id, userData);
+        console.log(user, '%%%');
         return user;
     }
     catch {

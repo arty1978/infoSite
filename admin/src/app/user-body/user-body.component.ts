@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from 'express';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HttpService } from '../http.service';
 import { Users } from '../users/users.interface';
@@ -24,7 +23,7 @@ export class UserBodyComponent {
     }
 
     const sub = this.http
-      .put<void>(`user/updateone?_id=${this.user._id}`, this.user)
+      .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
       .pipe()
       .subscribe(() => {
         console.log(this.user, 'put method');
@@ -57,10 +56,8 @@ export class UserBodyComponent {
 
       if (id) {
         const sub = this.http
-          .get<Users>(`articles/finduser?_id=${id}`)
+          .get<Users>(`users/finduser?_id=${id}`)
           .subscribe((data) => {
-            this.user;
-            console.log(sub, 'line 107 in the get method');
             this.user = data;
             console.log(this.user);
 
