@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
-import { Admin } from './admins.interface';
+import { Users } from '../../../../frontEnd/src/app/users/users.interface';
+import { SignIn } from '../login-admin/logIn.interFace';
 
 @Component({
   selector: 'app-admins-page',
@@ -9,14 +10,15 @@ import { Admin } from './admins.interface';
   styleUrls: ['./admins-page.component.css'],
 })
 export class AdminsPageComponent implements OnInit {
-  users: Admin[] = [];
-  edit(item: Admin) {
-    this.router.navigate(['users-body', item._id]);
+  users: Users[] = [];
+  sigIn: SignIn;
+  edit(item: Users) {
+    this.router.navigate(['users/updateone', item._id]);
   }
-  remove(item: Admin) {
+  remove(item: Users) {
     console.log(item);
     const sub = this.http
-      .delete<void>(`users/deleteone/${item._id}`)
+      .delete<Users>(`users/deleteone/${item._id}`)
       .subscribe((data) => {
         const i = this.users.findIndex((x) => x._id == item._id);
         this.users.splice(i, 1);
@@ -27,8 +29,13 @@ export class AdminsPageComponent implements OnInit {
   constructor(private http: HttpService, private router: Router) {}
 
   ngOnInit(): void {
-    const sub = this.http.get<Admin[]>('users').subscribe((data) => {
+    localStorage.getItem('token');
+    const adminId = localStorage.getItem('user');
+    console.log(localStorage.getItem('token'), 'token', adminId, '!!!');
+
+    const sub = this.http.get<Users[]>('users').subscribe((data) => {
       this.users = data;
+      console.log(this.users, '!!!');
     });
     sub.unsubscribe();
   }

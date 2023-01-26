@@ -1,13 +1,14 @@
-const operations = require('../../../mongoose/controllers/UserOperations');
+const operations = require('../../../mongoose/controllers/adminOperations');
 const jsonwebtoken = require('jsonwebtoken');
 const validateSignInUser = require('../../../joi/validationSignIn');
 
-async function signInUser(req, res) {
+async function signInAdmin(req, res) {
     const { error } = validateSignInUser(req.body);
     if (error)
         return res.status(401).json(error.details[0].message);
     const { email, password } = req.body;
-    const userFromDb = await operations.signInUser(email, password);
+    console.log({ email, password });
+    const userFromDb = await operations.signInAdmin(email, password);
     if (!userFromDb)
         return res.status(500).json('no user found');
     const token = jsonwebtoken.sign({ userid: userFromDb._id }, 'webToken');
@@ -29,4 +30,4 @@ function signInStatus(req, res) {
         })
     }
 }
-module.exports = signInUser, signInStatus;
+module.exports = signInAdmin, signInStatus;

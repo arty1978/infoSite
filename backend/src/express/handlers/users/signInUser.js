@@ -1,6 +1,7 @@
 const operations = require('../../../mongoose/controllers/UserOperations');
 const jsonwebtoken = require('jsonwebtoken');
 const validateSignInUser = require('../../../joi/validationSignIn');
+const authenticateUser = require('../../middlewares/authenticateUser');
 
 async function signInUser(req, res) {
     const { error } = validateSignInUser(req.body);
@@ -18,15 +19,19 @@ async function signInUser(req, res) {
     });
 }
 function signInStatus(req, res) {
-    if (req.body.user) {
+    // לבדוק האם היוזר מחובר ולתת סטטוסים לפי זה
+    console.log(req.jsonwebtoken, '???');
+    if (authenticateUser) {
         res.send({
             status: 'success',
-            user: req.body.user
+            // user: // כאן לתת את האובייקט של היוזר המחובר
         });
     } else {
         res.send({
             status: 'error'
         })
     }
+
+    // לשים לב להתייחס לנ"ל באנגולר
 }
-module.exports = signInUser, signInStatus;
+module.exports = { signInUser, signInStatus };

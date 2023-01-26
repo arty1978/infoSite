@@ -27,22 +27,19 @@ export class LoginAdminComponent {
     const sub = this.http
       .post<SignIn>('admin/signin', data)
       .subscribe((item) => {
-        console.log(item, '!!!');
+        // console.log(item, '!!!');
 
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
 
-        console.log(item, 'token of logged ADMIN');
+        // console.log(item, 'token of logged ADMIN');
         this.http.setToken();
         this.utility.setUser(item.user);
 
         sub.unsubscribe();
-        this.router.navigate(['']);
+        this.router.navigate(['admins-page']);
       });
   }
-  // buildForm(item: Admin) {
-  //   this.form;
-  // }
 
   constructor(
     private http: HttpService,

@@ -1,0 +1,74 @@
+h2 {
+  margin: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: rgb(123, 192, 213);
+  color: white;
+}
+
+td {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  width: 16%;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(158, 209, 222, 0.461);
+}
+
+td:last-child > span {
+  transition: 0.3s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+tr td:last-child {
+  text-align: left;
+}
+
+.edit {
+  background-color: rgb(192, 224, 243);
+  border-radius: 20%;
+  margin-right: 1em;
+  transition: 0.3s;
+  border: none;
+}
+
+.remove {
+  background-color: rgb(243, 192, 192);
+  border-radius: 20%;
+  transition: 0.2s;
+  border: none;
+}
+
+.edit:hover {
+  scale: 1.2;
+}
+
+.remove:hover {
+  scale: 1.2;
+}
+
+.newArticleButton {
+  margin: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  width: 150px;
+  font-size: 1.2rem;
+  background-color: rgba(158, 209, 222, 0.461);
+  margin-bottom: 2em;
+}

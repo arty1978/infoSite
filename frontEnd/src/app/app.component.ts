@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { HttpService } from './http.service';
+import { Users } from './users/users.interface';
 import { UtilityService } from './utility.service';
 
 @Component({
@@ -32,4 +33,19 @@ export class AppComponent {
     private http: HttpService,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    const sub = this.http
+      .get<Users>('users/signin')
+      .pipe(
+        finalize(() => {
+          if (sub?.unsubscribe) {
+            sub.unsubscribe();
+          }
+        })
+      )
+      .subscribe((data) => {
+        this.utility.setUser(data);
+      });
+  }
 }

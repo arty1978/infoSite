@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { Admin } from './admins-page/admins.interface';
 import { HttpService } from './http.service';
 import { UtilityService } from './utility.service';
-import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -32,4 +33,19 @@ export class AppComponent {
     private http: HttpService,
     private router: Router
   ) {}
+
+  // ngOnInit() {
+  //   const sub = this.http
+  //     .get<Admin>('admin/signin')
+  //     .pipe(
+  //       finalize(() => {
+  //         if (sub?.unsubscribe) {
+  //           sub.unsubscribe();
+  //         }
+  //       })
+  //     )
+  //     .subscribe((data) => {
+  //       this.utility.setUser(data);
+  //     });
+  // }
 }

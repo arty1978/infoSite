@@ -1,0 +1,28 @@
+<form *ngIf="form" class="frame" [formGroup]="form">
+  <h2 *ngIf="user._id">Edit Article</h2>
+  <div>
+    <label class="field">Title</label>
+    <input type="text" formControlName="title" />
+  </div>
+
+  <div>
+    <label class="field">Subtitle</label>
+    <input type="text" formControlName="subTitle" />
+  </div>
+
+  <div>
+    <label class="field">Article Category:</label>
+    <input type="text" formControlName="category" />
+  </div>
+
+  <div class="field">
+    <label>Content:</label>
+    <textarea formControlName="body" cols="30" rows="10"></textarea>
+  </div>
+
+  <div class="field">
+    <button *ngIf="user._id" (click)="update()" [disabled]="!form.valid">
+      Save user
+    </button>
+  </div>
+</form>

@@ -10,10 +10,7 @@ import { Menu } from './navbar.interface';
 })
 export class NavbarComponent implements OnInit {
   active: string = '';
-  menu: Menu[] = [
-    { route: '/login-admin', title: 'Login', isConnected: false },
-    { route: '/admins-Page', title: 'Admins page', isConnected: true },
-  ];
+  menu: Menu[] = [{ route: '/users', title: 'users', isConnected: true }];
 
   signOut() {
     localStorage.removeItem('token');

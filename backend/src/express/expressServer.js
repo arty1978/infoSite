@@ -12,20 +12,20 @@ const getOneByUserIDAndarticleID = require('./handlers/articles/getArticleByUser
 const getOneArticle = require('./handlers/articles/findArticle')
 
 const signUpUser = require('./handlers/users/registerUser')
-const signinUser = require('./handlers/users/signInUser');
+const signinUser = require('./handlers/users/signInUser').signInUser;
 const getUsers = require('./handlers/users/getUsers');
 const deleteUser = require('./handlers/users/deleteUser');
 const updateUser = require('./handlers/users/updateUser');
 const getOneUser = require('./handlers/users/findUser');
 const authenticateUser = require('./middlewares/authenticateUser');//1
-const signInStatus = require('./handlers/users/signInUser')
+const signInStatus = require('./handlers/users/signInUser').signInStatus;
 const signInAdmin = require('./handlers/admin/signInAdmin');
 const registerAdmin = require('./handlers/admin/registerAdmin')
 
 server.use(express.json());
 server.use(cors({
-    // origin: true,
-    origin: 'http://localhost:4200',
+    origin: true,
+    // origin: 'http://localhost:4200',
     methods: 'GET,PUT,POST,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, token',

@@ -31,11 +31,13 @@ export class ArticlesComponent implements OnInit {
   ngOnInit() {
     localStorage.getItem('token');
     const userId = localStorage.getItem('user');
+    console.log(userId, '!!!');
 
     const sub = this.http
       .get<Articles[]>(`articles/getMyArticles?_id=${userId}`)
       .subscribe((data) => {
         this.articles = data;
+
         sub.unsubscribe();
       });
   }
