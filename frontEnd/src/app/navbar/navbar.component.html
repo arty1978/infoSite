@@ -13,7 +13,10 @@
 
   <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
 
-  <div class="hello" *ngIf="utility.getUser()">
+  <div class="hello" *ngIf="utility.getUser()?.userName">
     Welcome {{ utility.getUser()?.userName }}
   </div>
+  <!-- <div class="hello" *ngIf="utility.getUser()">
+    Welcome {{ utility.getUser()?.userName }}
+  </div> -->
 </nav>

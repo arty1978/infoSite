@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Users } from './users/users.interface';
 
@@ -9,7 +10,7 @@ export class UtilityService {
 
   setUser(user?: Users) {
     this.user = user;
-    // console.log(user, 'user from utility in set');
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getUser() {
@@ -18,5 +19,13 @@ export class UtilityService {
   removeUser() {
     this.user = undefined;
   }
-  constructor() {}
+  constructor(private utility: UtilityService) {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user = JSON.parse(userString);
+      if (user && user !== null && user !== undefined) {
+        this.utility.setUser(user);
+      }
+    }
+  }
 }

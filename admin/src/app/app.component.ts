@@ -34,18 +34,18 @@ export class AppComponent {
     private router: Router
   ) {}
 
-  // ngOnInit() {
-  //   const sub = this.http
-  //     .get<Admin>('admin/signin')
-  //     .pipe(
-  //       finalize(() => {
-  //         if (sub?.unsubscribe) {
-  //           sub.unsubscribe();
-  //         }
-  //       })
-  //     )
-  //     .subscribe((data) => {
-  //       this.utility.setUser(data);
-  //     });
-  // }
+  ngOnInit() {
+    const sub = this.http
+      .get<Admin>('admin/signin')
+      .pipe(
+        finalize(() => {
+          if (sub?.unsubscribe) {
+            sub.unsubscribe();
+          }
+        })
+      )
+      .subscribe((data) => {
+        this.utility.setUser(data);
+      });
+  }
 }
