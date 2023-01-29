@@ -1,3 +1,4 @@
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Users } from './users/users.interface';
@@ -5,7 +6,7 @@ import { Users } from './users/users.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class UtilityService {
+export class UtilityService implements OnInit {
   public user?: Users;
 
   setUser(user?: Users) {
@@ -19,12 +20,12 @@ export class UtilityService {
   removeUser() {
     this.user = undefined;
   }
-  constructor(private utility: UtilityService) {
+  ngOnInit() {
     const userString = localStorage.getItem('user');
     if (userString) {
       const user = JSON.parse(userString);
       if (user && user !== null && user !== undefined) {
-        this.utility.setUser(user);
+        this.setUser(user);
       }
     }
   }

@@ -29,23 +29,44 @@ export class AppComponent {
   }
 
   constructor(
-    public utility: UtilityService,
+    private utility: UtilityService,
     private http: HttpService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    const sub = this.http
-      .get<Users>('users/signin')
-      .pipe(
-        finalize(() => {
-          if (sub?.unsubscribe) {
-            sub.unsubscribe();
-          }
-        })
-      )
-      .subscribe((data) => {
-        this.utility.setUser(data);
-      });
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user = JSON.parse(userString);
+      if (user && user !== null && user !== undefined) {
+        this.utility.setUser(user);
+      } else {
+        const sub = this.http
+          .get<Users>('users/signin')
+          .pipe(
+            finalize(() => {
+              if (sub?.unsubscribe) {
+                sub.unsubscribe();
+              }
+            })
+          )
+          .subscribe((data) => {
+            this.utility.setUser(data);
+          });
+      }
+    } else {
+      const sub = this.http
+        .get<Users>('users/signin')
+        .pipe(
+          finalize(() => {
+            if (sub?.unsubscribe) {
+              sub.unsubscribe();
+            }
+          })
+        )
+        .subscribe((data) => {
+          this.utility.setUser(data);
+        });
+    }
   }
 }
