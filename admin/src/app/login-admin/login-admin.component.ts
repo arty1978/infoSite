@@ -37,7 +37,7 @@ export class LoginAdminComponent {
         this.utility.setUser(item.user);
 
         sub.unsubscribe();
-        this.router.navigate(['admins-page']);
+        this.router.navigate(['users']);
       });
   }
 
