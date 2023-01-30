@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Users } from '../users/users.interface';
 import { Subscription } from 'rxjs';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-password-recovery',
@@ -16,11 +17,13 @@ export class PasswordRecoveryComponent {
   form: FormGroup;
 
   send() {
-    const data = this.form.value;
-    console.log(data, 'inside add function');
-
+    if (this.form.value.password == this.form.value.passwordConfirmation) {
+      this.user.password = this.form.value.password;
+      this.user.tempReset = false;
+      this.user.tempPassword = '';
+    }
     const sub = this.http
-      .post<Users>('users/create', data)
+      .put<Users>(`users/updateone/${this.user._id}`, this.user)
       .subscribe((item) => {
         sub.unsubscribe();
         this.router.navigate(['articles']);
@@ -28,16 +31,15 @@ export class PasswordRecoveryComponent {
       });
   }
   buildForm(item: Users) {
-    this.form = new FormGroup({
-      password: new FormControl(item.password, [
+    this.form = FormGroup({
+      password: new FormControl('', [
         Validators.required,
-        Validators.pattern(
-          /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
-        ),
+        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
       ]),
-      passwordConfirmation: new FormControl('', {
-        validators: [Validators.required, this.passwordMatchValidator],
-      }),
+      checkedPassword: new FormControl('', [
+        Validators.required,
+        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
+      ]),
     });
   }
   passwordMatchValidator(form: FormGroup): { [key: string]: any } | null {
@@ -53,16 +55,18 @@ export class PasswordRecoveryComponent {
   constructor(
     private http: HttpService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public utility: UtilityService
   ) {
     this.sub = this.route.params.subscribe((data) => {
-      const id: any = data['id'];
-      console.log(this.user, 'form constructor in signup component.ts');
+      const id: any = this.utility.user?._id;
+      console.log(id, 'id');
       if (id) {
         const sub = this.http
           .get<Users>(`users/finduser/${id}`)
           .subscribe((data) => {
             this.user = data;
+            console.log(this.user, 'user!!!');
             this.buildForm(this.user);
             sub.unsubscribe();
           });

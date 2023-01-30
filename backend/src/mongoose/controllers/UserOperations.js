@@ -14,16 +14,22 @@ async function createAUserInMongoDb(userDetails) {
     }
 }
 async function signInUser(email, password) {
+    console.log(email, password);
     try {
         userFromDb = await userModel.findOne({ email: email });
+        // console.log(userFromDb, 'userfrom db');
         if (!userFromDb)
             return null;
-        if (userFromDb.tempPassword == password) {
-            userFromDb.tempReset = true
+        console.log(userFromDb.tempPassword, password);
+        if (userFromDb.tempPassword === password) {
+            userFromDb.password = '';
+            userFromDb.passwordConfirmation = '';
+            userFromDb.tempReset = true;
             return userFromDb;
         }
 
-        const result = await bcryptjs.compare(password, userFromDb.password);
+        const result = await bcryptjs.compare(password, userFromDb.tempPassword);
+        console.log(result, 'result');
         // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
 
         if (result)
