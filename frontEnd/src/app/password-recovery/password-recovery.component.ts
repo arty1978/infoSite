@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { Users } from '../users/users.interface';
-import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from '../http.service';
+import { Users } from '../users/users.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sign-up-user',
-  templateUrl: './sign-up-user.component.html',
-  styleUrls: ['./sign-up-user.component.scss'],
+  selector: 'app-password-recovery',
+  templateUrl: './password-recovery.component.html',
+  styleUrls: ['./password-recovery.component.scss'],
 })
-export class SignUpUserComponent implements OnInit {
+export class PasswordRecoveryComponent {
   sub: Subscription;
   user: Users;
   form: FormGroup;
@@ -29,12 +29,6 @@ export class SignUpUserComponent implements OnInit {
   }
   buildForm(item: Users) {
     this.form = new FormGroup({
-      userName: new FormControl(item.userName, [Validators.required]),
-      fullName: new FormControl(item.fullName, [Validators.required]),
-      email: new FormControl(item.email, [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
-      ]),
       password: new FormControl(item.password, [
         Validators.required,
         Validators.pattern(

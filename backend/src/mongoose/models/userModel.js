@@ -1,4 +1,5 @@
 
+const { boolean } = require('joi');
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
@@ -10,7 +11,9 @@ const userSchema = mongoose.Schema({
     password: String,
     passwordConfirmation: String,
     createdAt: String,
-    updatedtedAt: String
+    updatedtedAt: String,
+    tempPassword: String,
+    tempReset: Boolean
 });
 userSchema.plugin(uniqueValidator);
 userSchema.pre('save', (next) => {

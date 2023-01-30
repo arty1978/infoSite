@@ -1,31 +1,29 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { Users } from '../users/users.interface';
-import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SignIn } from './signIn.interFace';
+import { Subscription } from 'rxjs';
+import { HttpService } from '../http.service';
+import { SignIn } from '../sign-in-user/signIn.interFace';
+import { Users } from '../users/users.interface';
 import { UtilityService } from '../utility.service';
 
 @Component({
-  selector: 'app-sign-in-user',
-  templateUrl: './sign-in-user.component.html',
-  styleUrls: ['./sign-in-user.component.scss'],
+  selector: 'app-password-reset',
+  templateUrl: './password-reset.component.html',
+  styleUrls: ['./password-reset.component.scss'],
 })
-export class SignInUserComponent {
+export class PasswordResetComponent {
   sub: Subscription;
   user: Users;
   form: FormGroup;
-  attempts: number = 0;
 
   signIn() {
     const data = {
       email: this.form.value.email,
-      password: this.form.value.password,
     };
 
     const sub = this.http
-      .post<SignIn>('users/signin', data)
+      .post<SignIn>('users/reset', data)
       .subscribe((item) => {
         console.log(item, '!!!');
 
@@ -37,10 +35,9 @@ export class SignInUserComponent {
         this.utility.setUser(item.user);
 
         sub.unsubscribe();
-        this.router.navigate(['articles']);
+        if (this.user._id) this.router.navigate(['password-recovery']);
         console.log(sub, 'inside post method signin.ts');
       });
-    this.attempts++;
   }
   buildForm(item: Users) {
     this.form = new FormGroup({
@@ -55,7 +52,7 @@ export class SignInUserComponent {
   constructor(
     private http: HttpService,
     private route: ActivatedRoute,
-    public router: Router,
+    private router: Router,
     public utility: UtilityService
   ) {
     this.user = {

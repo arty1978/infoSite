@@ -30,6 +30,20 @@ async function signInUser(email, password) {
         return console.log('error occurred');
     }
 }
+async function resetPassword(email) {
+    try {
+        console.log(email, "@@@");
+        userFromDb = await userModel.findOne(email);
+        console.log(userFromDb, '!!!');
+        if (!userFromDb)
+            return null;
+
+        console.log(userFromDb, '???');
+        return userFromDb;
+    } catch {
+        return console.log('error occurred');
+    }
+}
 async function getAllUsers() {
     try {
         const allUsers = await userModel.find();
@@ -53,7 +67,17 @@ async function deleteUser(id) {
 
 async function updateUser(id, userData) {
     try {
-
+        const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
+        return updatedUser;
+    }
+    catch
+    {
+        return null;
+    }
+}
+async function updateUserPass(id, userData) {
+    try {
+        console.log(id, userData, "4444");
         const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
         return updatedUser;
     }
@@ -81,6 +105,7 @@ module.exports = {
     getAllUsers,
     deleteUser,
     updateUser,
-    getOneUser
+    getOneUser,
+    resetPassword, updateUserPass
 }
 

@@ -17,6 +17,8 @@ import { SignInUserComponent } from './sign-in-user/sign-in-user.component';
 import { UsersComponent } from './users/users.component';
 import { FullArticleComponent } from './full-article/full-article.component';
 import { UtilityService } from './utility.service';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { UtilityService } from './utility.service';
     SignInUserComponent,
     UsersComponent,
     FullArticleComponent,
+    PasswordResetComponent,
+    PasswordRecoveryComponent,
   ],
   imports: [
     BrowserModule,
