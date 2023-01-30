@@ -3,7 +3,7 @@ const operations = require('../../../mongoose/controllers/UserOperations');
 /** @type {import("express").RequestHandler} */
 
 async function updateUser(req, res) {
-
+    console.log(req.query._id, '!!!');
     const userId = req.query._id;
     if (!userId) {
         return res.status(400).json('user Id not deliverd');

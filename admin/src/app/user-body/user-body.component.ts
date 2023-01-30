@@ -39,7 +39,7 @@ export class UserBodyComponent {
       fullName: new FormControl(item.fullName, [Validators.required]),
       email: new FormControl(item.email, [Validators.required]),
       password: new FormControl(item.password, [Validators.required]),
-      passwordConfirm: new FormControl(item.passwordConfirmation, [
+      passwordConfirmation: new FormControl(item.passwordConfirmation, [
         Validators.required,
       ]),
     });

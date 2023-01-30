@@ -66,7 +66,11 @@ async function deleteUser(id) {
 }
 
 async function updateUser(id, userData) {
+    console.log(id, userData, '???');
     try {
+        userData.password = bcryptjs.hashSync(userData.password);
+        userData.passwordConfirmation = bcryptjs.hashSync(userData.passwordConfirmation);
+
         const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
         return updatedUser;
     }
@@ -77,7 +81,6 @@ async function updateUser(id, userData) {
 }
 async function updateUserPass(id, userData) {
     try {
-        console.log(id, userData, "4444");
         const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
         return updatedUser;
     }
