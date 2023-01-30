@@ -37,7 +37,6 @@ export class SignInUserComponent {
 
         sub.unsubscribe();
         this.router.navigate(['articles']);
-        console.log(sub, 'inside post method signin.ts');
       });
     this.attempts++;
   }

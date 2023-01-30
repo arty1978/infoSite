@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Admin } from './admins-page/admins.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UtilityService {
+export class UtilityService implements OnInit {
   public user?: Admin;
+  isNavOpen = true;
 
   setUser(user?: Admin) {
     this.user = user;
-    // console.log(user, 'user from utility in set');
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getUser() {
@@ -18,5 +19,13 @@ export class UtilityService {
   removeUser() {
     this.user = undefined;
   }
-  constructor() {}
+  ngOnInit() {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user = JSON.parse(userString);
+      if (user && user !== null && user !== undefined) {
+        this.setUser(user);
+      }
+    }
+  }
 }

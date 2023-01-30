@@ -13,3 +13,13 @@
     Welcome {{ utility.getUser()?.userName }}
   </div>
 </nav>
+
+<div class="burgerContainer">
+  <div class="burger" (click)="openNav()">&nbsp; &#9776;</div>
+</div>
+
+<nav class="sidenav" [style.width]="utility.isNavOpen ? '150px' : 0">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <p *ngIf="!utility.user"></p>
+  <a routerLink=""></a>
+</nav>

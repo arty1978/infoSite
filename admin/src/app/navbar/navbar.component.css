@@ -6,6 +6,9 @@ nav {
   position: sticky;
   display: flex;
   top: 0;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 }
 
 a {
@@ -34,8 +37,67 @@ a:hover {
 a[hidden] {
   display: none;
 }
+.sidenav {
+  height: 100%;
+  width: 30vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(165, 232, 227);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  display: none;
+  flex-direction: column;
 
-.btn {
-  margin-left: 6px;
-  padding: -5px;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.sidenav a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  transition: 0.3s;
+  font-size: 0.8rem;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidenav a:hover {
+  color: rgb(78, 119, 137);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.burgerContainer {
+  background-color: rgb(165, 232, 227);
+  padding: 20px;
+  display: none;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.burger {
+  color: rgb(86, 85, 85);
+
+  font-size: 1.5rem;
+  margin: -20px;
+  line-height: 2;
+}
+
+.burger:hover {
+  cursor: pointer;
 }

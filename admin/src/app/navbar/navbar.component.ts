@@ -10,13 +10,22 @@ import { Menu } from './navbar.interface';
 })
 export class NavbarComponent implements OnInit {
   active: string = '';
-  menu: Menu[] = [{ route: '/users', title: 'users', isConnected: true }];
+  menu: Menu[] = [{ route: '', title: '' }];
 
   signOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.utility.removeUser();
+    if (this.utility.getUser()) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      this.utility.removeUser();
+    }
   }
+  closeNav() {
+    this.utility.isNavOpen = false;
+  }
+  openNav() {
+    this.utility.isNavOpen = true;
+  }
+
   constructor(public utility: UtilityService, private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -24,5 +33,7 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.utility.getUser();
+  }
 }

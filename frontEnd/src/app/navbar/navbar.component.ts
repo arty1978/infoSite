@@ -37,6 +37,6 @@ export class NavbarComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    const user = this.utility.getUser();
+    this.utility.getUser();
   }
 }

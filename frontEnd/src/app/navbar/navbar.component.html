@@ -24,8 +24,18 @@
 
 <nav class="sidenav" [style.width]="utility.isNavOpen ? '150px' : 0">
   <a class="closebtn" (click)="closeNav()">&times;</a>
-  <p *ngIf="!utility.user"></p>
-  <a routerLink="">Home</a>
-  <a routerLink="signin">Login</a>
-  <a routerLink="signup">SignUp</a>
+  <a
+    *ngFor="let item of menu"
+    [class.active]="active === item.route"
+    [routerLink]="item.route"
+    [hidden]="item.isConnected && !utility.user"
+    >{{ item.title }}</a
+  >
+
+  <p *ngIf="!utility.user">
+    <a routerLink="">Home</a>
+    <a routerLink="sign-in-user">Login</a>
+    <a routerLink="sign-up-user">SignUp</a>
+  </p>
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
 </nav>
