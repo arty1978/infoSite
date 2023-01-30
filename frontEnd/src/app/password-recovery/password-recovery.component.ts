@@ -31,15 +31,16 @@ export class PasswordRecoveryComponent {
       });
   }
   buildForm(item: Users) {
-    this.form = FormGroup({
-      password: new FormControl('', [
+    this.form = new FormGroup({
+      password: new FormControl(item.password, [
         Validators.required,
-        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
+        Validators.pattern(
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        ),
       ]),
-      checkedPassword: new FormControl('', [
-        Validators.required,
-        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
-      ]),
+      passwordConfirmation: new FormControl('', {
+        validators: [Validators.required, this.passwordMatchValidator],
+      }),
     });
   }
   passwordMatchValidator(form: FormGroup): { [key: string]: any } | null {
@@ -58,30 +59,30 @@ export class PasswordRecoveryComponent {
     private router: Router,
     public utility: UtilityService
   ) {
-    this.sub = this.route.params.subscribe((data) => {
-      const id: any = this.utility.user?._id;
-      console.log(id, 'id');
-      if (id) {
-        const sub = this.http
-          .get<Users>(`users/finduser/${id}`)
-          .subscribe((data) => {
-            this.user = data;
-            console.log(this.user, 'user!!!');
-            this.buildForm(this.user);
-            sub.unsubscribe();
-          });
-      } else {
-        this.user = {
-          _id: 0,
-          userName: '',
-          fullName: '',
-          email: '',
-          password: '',
-        };
-        this.buildForm(this.user);
-        console.log(this.user, 'inside constructor signup.ts');
-      }
-    });
+    // this.sub = this.route.params.subscribe((data) => {
+    //   const id: any = this.utility.user?._id;
+    //   console.log(id, 'id');
+    //   if (id) {
+    //     const sub = this.http
+    //       .get<Users>(`users/finduser/${id}`)
+    //       .subscribe((data) => {
+    //         this.user = data;
+    //         console.log(this.user, 'inside constructor signup.ts');
+    //         this.buildForm(this.user);
+    //         sub.unsubscribe();
+    //       });
+    //   } else {
+    //     this.user = {
+    //       _id: 0,
+    //       userName: '',
+    //       fullName: '',
+    //       email: '',
+    //       password: '',
+    //     };
+    //     this.buildForm(this.user);
+    //     console.log(this.user, 'inside constructor signup.ts');
+    //   }
+    // });
   }
   ngOnInit() {}
 
