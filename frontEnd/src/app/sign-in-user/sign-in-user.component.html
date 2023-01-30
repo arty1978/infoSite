@@ -9,6 +9,9 @@
     <label>Password</label>
     <input type="password" formControlName="password" />
   </div>
+  <div class="message" *ngIf="this.attempts > 0">
+    {{ message }}
+  </div>
   <button type="submit" class="btn btn-primary">Sign In</button>
   <a *ngIf="this.attempts >= 5" routerLink="/password-reset"
     >Reset your password</a
