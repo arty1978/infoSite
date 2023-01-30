@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .wraper {
     border: 1px solid rgb(245, 169, 169);
     margin: 20px;
@@ -6,18 +8,19 @@
 
 div {
 
-    color: rgb(86, 85, 85);
+    color: $textColor;
     font-size: 1em;
     line-height: 2;
-    text-align: center;
+    text-align: left;
 }
 
 h2 {
     text-align: center;
+
 }
 
 h2:hover {
-    color: rgb(82, 151, 147);
+    color: $navHover;
     text-decoration: underline;
     cursor: pointer;
 }

@@ -19,12 +19,10 @@ async function signInUser(req, res) {
     });
 }
 function signInStatus(req, res) {
-    // לבדוק האם היוזר מחובר ולתת סטטוסים לפי זה
     console.log(req.jsonwebtoken, '???');
     if (authenticateUser) {
         res.send({
             status: 'success',
-            // user: // כאן לתת את האובייקט של היוזר המחובר
         });
     } else {
         res.send({
@@ -32,6 +30,5 @@ function signInStatus(req, res) {
         })
     }
 
-    // לשים לב להתייחס לנ"ל באנגולר
 }
 module.exports = { signInUser, signInStatus };

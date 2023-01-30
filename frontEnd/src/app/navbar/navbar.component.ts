@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../utility.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Menu } from './navbar.interface';
-import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,8 +12,6 @@ export class NavbarComponent implements OnInit {
   menu: Menu[] = [
     { route: '/', title: 'Home' },
     { route: '/articles', title: 'Articles', isConnected: true },
-    // { route: '/sign-in-user', title: 'SignIn' },
-    // { route: '/sign-up-user', title: 'SignUp' },
   ];
 
   signOut() {
@@ -24,11 +21,15 @@ export class NavbarComponent implements OnInit {
       this.utility.removeUser();
     }
   }
-  constructor(
-    public utility: UtilityService,
-    private router: Router,
-    private http: HttpClient
-  ) {
+
+  closeNav() {
+    this.utility.isNavOpen = false;
+  }
+  openNav() {
+    this.utility.isNavOpen = true;
+  }
+
+  constructor(public utility: UtilityService, private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.active = event.url;
@@ -37,6 +38,5 @@ export class NavbarComponent implements OnInit {
   }
   ngOnInit(): void {
     const user = this.utility.getUser();
-    console.log(user, '!!!');
   }
 }

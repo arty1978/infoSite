@@ -1,35 +1,63 @@
+@import '../../variables';
+
 h1 {
     text-align: center;
     margin-bottom: 40px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
+    font-family: 'Cormorant Garamond';
+    font-size: 2.5em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.346);
+
 }
 
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: rgb(142, 192, 189);
+    color: $subTitleHome;
+
+    @media (max-width: 480px) {
+        font-size: 1.2em;
+    }
 }
 
 .divPara {
     text-align: center;
+
+    @media (max-width: 480px) {
+        text-align: center;
+        margin: 10px;
+    }
 }
 
 p {
     margin-left: 10px;
     margin-bottom: 20px;
     line-height: 1.8;
-    color: rgb(86, 85, 85);
+    color: $textColor;
+
+    @media (max-width: 480px) {
+        font-size: 0.8em;
+    }
 }
 
 h3 {
     text-align: center;
     line-height: 2;
-    color: rgb(86, 85, 85);
-    margin-top: 5rem;
+    color: $textColor;
+    margin-top: 3rem;
+    font-family: 'Cormorant Garamond';
+    font-size: 1.5em;
+
+    @media (max-width: 480px) {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .wraper {
     display: flex;
+    justify-content: center;
+
 
 }
 
@@ -43,7 +71,16 @@ h3 {
     margin-top: 50px;
     margin-right: 1rem;
     margin-left: 1rem;
+    width: 85%;
 
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        width: 60vw;
+        margin: 0 auto;
+        grid-column: 1;
+        grid-row: 1;
+    }
 
 }
 
@@ -63,15 +100,18 @@ h3 {
     border-radius: 8px;
     grid-column: 1/12;
     grid-row: 1/5;
-    color: rgb(86, 85, 85);
+    color: $textColor;
+    box-shadow: $gridShadow;
 
 }
 
-.item1:hover {
+.itemh:hover {
     cursor: pointer;
     color: rgb(82, 151, 147);
     border-color: rgb(142, 192, 189);
-    ;
+    transform: scale(1.1);
+    background-color: white;
+
 }
 
 .item2 {
@@ -83,16 +123,13 @@ h3 {
     font-size: 0.8em;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 1/6;
     grid-row: 5/9;
+    box-shadow: $gridShadow;
+
 }
 
-.item2:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
-}
 
 .item3 {
     display: flex;
@@ -103,16 +140,12 @@ h3 {
     font-size: 0.8em;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 7/12;
     grid-row: 5/9;
+    box-shadow: $gridShadow;
 }
 
-.item3:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
-}
 
 .item4 {
     display: flex;
@@ -123,16 +156,13 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 1/4;
     grid-row: 9/13;
+    box-shadow: $gridShadow;
+
 }
 
-.item4:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
-}
 
 .item5 {
     display: flex;
@@ -143,17 +173,13 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 5/8;
     grid-row: 9/13;
-}
-
-.item5:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
+    box-shadow: $gridShadow;
 
 }
+
 
 .item6 {
     display: flex;
@@ -164,17 +190,14 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 9/12;
     grid-row: 9/13;
-}
+    box-shadow: $gridShadow;
 
-.item6:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
 
 }
+
 
 .item7 {
     display: flex;
@@ -185,17 +208,13 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 1/4;
     grid-row: 13/17;
-}
-
-.item7:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
+    box-shadow: $gridShadow;
 
 }
+
 
 .item8 {
     display: flex;
@@ -206,17 +225,13 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 5/8;
     grid-row: 13/17;
-}
-
-.item8:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
+    box-shadow: $gridShadow;
 
 }
+
 
 .item9 {
     display: flex;
@@ -227,14 +242,10 @@ h3 {
     line-height: 2;
     border: 3px solid rgb(89, 88, 88);
     border-radius: 8px;
-    color: rgb(86, 85, 85);
+    color: $textColor;
     grid-column: 9/12;
     grid-row: 13/17;
-}
+    box-shadow: $gridShadow;
 
-.item9:hover {
-    cursor: pointer;
-    color: rgb(82, 151, 147);
-    border-color: rgb(142, 192, 189);
 
 }

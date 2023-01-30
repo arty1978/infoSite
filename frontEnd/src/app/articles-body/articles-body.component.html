@@ -3,12 +3,12 @@
   <h2 *ngIf="!article._id">Add Article</h2>
 
   <div>
-    <label class="field">Title</label>
+    <label class="field">Article Title:</label>
     <input type="text" formControlName="title" />
   </div>
 
   <div>
-    <label class="field">Subtitle</label>
+    <label class="field">Article Subtitle:</label>
     <input type="text" formControlName="subTitle" />
   </div>
 
@@ -17,20 +17,20 @@
     <input type="text" formControlName="category" />
   </div>
 
-  <!-- <div>
-    <label class="field">Author:</label>
-    <input type="text" formControlName="author" />
-  </div>
- -->
   <div class="field">
     <label>Content:</label>
-    <textarea formControlName="body" cols="30" rows="10"></textarea>
+    <textarea formControlName="body" cols="30" rows="10" class="ta"></textarea>
   </div>
 
   <div class="field">
-    <button *ngIf="article._id" (click)="update()" [disabled]="!form.valid">
+    <button
+      *ngIf="article._id"
+      (click)="update()"
+      [disabled]="!form.valid"
+      class="btn"
+    >
       Save
     </button>
-    <button *ngIf="!article._id" (click)="add()">Add</button>
+    <button *ngIf="!article._id" (click)="add()" class="btn">Add</button>
   </div>
 </form>

@@ -12,11 +12,20 @@
   </p>
 
   <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
+  <a
+    >Welcome to our Site
+    {{ utility.user ? utility.getUser()?.fullName : "Dear Visitor" }}!</a
+  >
+</nav>
 
-  <div class="hello" *ngIf="utility.getUser()?.userName">
-    Welcome {{ utility.getUser()?.userName }}
-  </div>
-  <!-- <div class="hello" *ngIf="utility.getUser()">
-    Welcome {{ utility.getUser()?.userName }}
-  </div> -->
+<div class="burgerContainer">
+  <div class="burger" (click)="openNav()">&nbsp; &#9776;</div>
+</div>
+
+<nav class="sidenav" [style.width]="utility.isNavOpen ? '150px' : 0">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <p *ngIf="!utility.user"></p>
+  <a routerLink="">Home</a>
+  <a routerLink="signin">Login</a>
+  <a routerLink="signup">SignUp</a>
 </nav>

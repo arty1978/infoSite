@@ -1,17 +1,26 @@
+@import '../../variables';
+
 h2 {
     margin: 10px;
+    text-align: center;
+    line-height: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.235);
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
+
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 
 
 th {
     background-color: rgb(123, 192, 213);
     color: white;
-
+    text-decoration: underline;
 }
 
 td {
@@ -20,6 +29,8 @@ td {
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
+    color: $textColor;
+
 }
 
 th,
@@ -31,16 +42,17 @@ td {
 
 tr:nth-child(even) {
     background-color: rgba(158, 209, 222, 0.461);
+
 }
 
-td:last-child>span {
-    transition: 0.3s;
-    display: inline-block;
-    cursor: pointer;
-}
 
 tr td:last-child {
     text-align: left;
+}
+
+tr:hover {
+    transform: scale(1.1);
+    border: 2px solid black;
 }
 
 .edit {
@@ -49,13 +61,24 @@ tr td:last-child {
     margin-right: 1em;
     transition: 0.3s;
     border: none;
+
+    @media (max-width: 480px) {
+        margin: 15px;
+        padding: 5px;
+    }
 }
+
 
 .remove {
     background-color: rgb(243, 192, 192);
     border-radius: 20%;
     transition: 0.2s;
     border: none;
+
+    @media (max-width: 480px) {
+        margin: 15px;
+        padding: 5px;
+    }
 }
 
 .edit:hover {
@@ -66,6 +89,14 @@ tr td:last-child {
     scale: 1.2;
 }
 
+.buttonContainer {
+    display: inline;
+
+    @media (max-width: 480px) {
+        display: flex;
+    }
+}
+
 .newArticleButton {
     margin: 10px;
     border-radius: 8px;
@@ -74,4 +105,19 @@ tr td:last-child {
     font-size: 1.2rem;
     background-color: rgba(158, 209, 222, 0.461);
     margin-bottom: 2em;
+
+    @media (max-width: 480px) {}
+}
+
+.card {
+    border: 3px solid $textColor;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 10px;
+    color: $textColor;
+    display: none;
+
+    @media (max-width: 480px) {
+        display: block;
+    }
 }

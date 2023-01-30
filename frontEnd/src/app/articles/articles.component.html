@@ -1,29 +1,37 @@
-<h2>Articles Management</h2>
+<h2>
+  Here you can find all of your articles. You can edit each Article or remove
+  it.
+</h2>
 <br />
-<button routerLink="/articles-body" class="newArticleButton">
-  New Article
-</button>
+<div class="">
+  <button routerLink="/articles-body" class="newArticleButton">
+    New Article
+  </button>
+</div>
 <br />
 
 <table>
   <thead>
     <tr>
       <th>#</th>
-      <th>Title</th>
+      <th>Article Title</th>
       <th>Subtitle</th>
-      <th>Category</th>
+      <th>Article Category</th>
       <th>Author</th>
       <th>Operations</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let a of articles; let i = index" (dblclick)="edit(a)">
+    <tr
+      *ngFor="let a of articles.reverse(); let i = index"
+      (dblclick)="edit(a)"
+    >
       <td>{{ i + 1 }}</td>
       <td>{{ a.title }}</td>
       <td>{{ a.subTitle }}</td>
       <td>{{ a.category }}</td>
       <td>{{ a.author }}</td>
-      <!-- <td>{{ a.publishDate | date : "dd/MM/yy hh:mm" }}</td> -->
+
       <td>
         <button class="edit" (click)="edit(a)">Edit</button>
         <button class="remove" (click)="remove(a)">Remove</button>
@@ -31,3 +39,25 @@
     </tr>
   </tbody>
 </table>
+
+<div
+  class="card"
+  *ngFor="let a of articles.reverse(); let i = index"
+  (dblclick)="edit(a)"
+>
+  <p>
+    <span style="text-decoration: underline">Article title</span>: {{ a.title }}
+  </p>
+  <p>
+    <span style="text-decoration: underline"> article SubTitle</span>:{{
+      a.subTitle
+    }}
+  </p>
+  <p>
+    <span style="text-decoration: underline">Article Category</span>:
+    {{ a.category }}
+  </p>
+  <p><span style="text-decoration: underline"> Author</span>: {{ a.author }}</p>
+  <button class="edit" (click)="edit(a)">Edit</button>
+  <button class="remove" (click)="remove(a)">Remove</button>
+</div>
