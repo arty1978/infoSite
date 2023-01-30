@@ -19,6 +19,7 @@ import { FullArticleComponent } from './full-article/full-article.component';
 import { UtilityService } from './utility.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
     FullArticleComponent,
     PasswordResetComponent,
     PasswordRecoveryComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

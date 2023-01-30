@@ -1,46 +1,48 @@
-<h1>Welcome to the World Wide Article Archive</h1>
+<body>
+  <h1>Welcome to the World Wide Article Archive</h1>
 
-<h2>So what kind of articles do we publish?</h2>
+  <h2>So what kind of articles do we publish?</h2>
 
-<div class="divPara">
-  <p>
-    We know it is challenging to cover all the important issues, to invest
-    resources in research and disseminate important news quickly and accurately
-    – especially for independent reporting trying to overcome the right-wing and
-    conservative media paradigm. So all articles published, can be republished
-    for free, either translated or in the original language. You can use them
-    for commercial and non-commercial purposes. You do not need to ask
-    permission from us or provide any credit.
-  </p>
-</div>
+  <div class="divPara">
+    <p>
+      We know it is challenging to cover all the important issues, to invest
+      resources in research and disseminate important news quickly and
+      accurately – especially for independent reporting trying to overcome the
+      right-wing and conservative media paradigm. So all articles published, can
+      be republished for free, either translated or in the original language.
+      You can use them for commercial and non-commercial purposes. You do not
+      need to ask permission from us or provide any credit.
+    </p>
+  </div>
 
-<h3>
-  You can browse our newest article below.<br />
-  Don't forget to click an article you like to open it in full view:
-</h3>
+  <h3>
+    You can browse our newest article below.<br />
+    Don't forget to click an article you like to open it in full view:
+  </h3>
 
-<div class="wraper">
-  <div class="gridContainer">
-    <div
-      *ngFor="let a of articles.slice(-9).reverse(); let i = index"
-      class="item{{ i + 1 }} itemh"
-    >
-      <a
-        class="button"
-        [routerLink]="['full-article', a._id]"
-        style="text-decoration: none; color: inherit"
+  <div class="wraper">
+    <div class="gridContainer">
+      <div
+        *ngFor="let a of articles.slice(-9).reverse(); let i = index"
+        class="item{{ i + 1 }} itemh"
       >
-        <span style="text-decoration: underline">Article Title</span>:
-        {{ a.title }} <br />
-        <span style="text-decoration: underline">Article SubTitle</span>:
-        {{ a.subTitle }}<br />
-        <span style="text-decoration: underline">Article Category</span>:
-        {{ a.category }}<br />
-        <span style="text-decoration: underline">Article Author</span>:
-        {{ a.author }}
-        <span style="text-decoration: underline">Date Published</span>:
-        {{ a.createdAt }}
-      </a>
+        <a
+          class="button"
+          [routerLink]="['full-article', a._id]"
+          style="text-decoration: none; color: inherit"
+        >
+          <span style="text-decoration: underline">Article Title</span>:
+          {{ a.title }} <br />
+          <span style="text-decoration: underline">Article SubTitle</span>:
+          {{ a.subTitle }}<br />
+          <span style="text-decoration: underline">Article Category</span>:
+          {{ a.category }}<br />
+          <span style="text-decoration: underline">Article Author</span>:
+          {{ a.author }}
+          <span style="text-decoration: underline">Date Published</span>:
+          {{ a.createdAt }}
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</body>

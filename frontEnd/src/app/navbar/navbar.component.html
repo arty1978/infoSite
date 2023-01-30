@@ -4,14 +4,17 @@
     [class.active]="active === item.route"
     [routerLink]="item.route"
     [hidden]="item.isConnected && !utility.user"
-    >{{ item.title }}</a
+  >
+    <i *ngIf="item.icon" class="fa fa-{{ item.icon }}"></i> {{ item.title }}</a
   >
   <p *ngIf="!utility.user">
-    <a routerLink="sign-in-user">Login</a>
-    <a routerLink="sign-up-user">Sign up</a>
+    <a routerLink="sign-in-user"> <i class="fa fa-sign-in"></i> Login</a>
+    <a routerLink="sign-up-user"> <i class="fa fa-user-plus"></i> Sign up</a>
   </p>
 
-  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()"
+    ><i class="fa fa-sign-out"></i> Logout</a
+  >
   <a
     >Welcome to our Site
     {{ utility.user ? utility.getUser()?.fullName : "Dear Visitor" }}!</a
@@ -34,7 +37,7 @@
 
   <p *ngIf="!utility.user">
     <a routerLink="">Home</a>
-    <a routerLink="sign-in-user">Login</a>
+    <a routerLink="sign-in-user"><i class="fa fa-sign-in"></i>Login</a>
     <a routerLink="sign-up-user">SignUp</a>
   </p>
   <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>

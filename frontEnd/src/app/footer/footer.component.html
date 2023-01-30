@@ -1,0 +1,27 @@
+<div class="fContain">
+  <div class="aFotter">
+    <a
+      *ngFor="let item of menu"
+      [routerLink]="item.route"
+      [class.active]="active == item.route"
+      [hidden]="item.isConnected && !utility.user"
+      >{{ item.title }}</a
+    >
+    <!--     <p *ngIf="!utility.user"></p>
+ -->
+    <a routerLink="signin"> Login</a>
+    <a routerLink="signup"> SignUp</a>
+    <a *ngIf="utility.user" routerLink="" (click)="logout()"> Logout</a>
+  </div>
+
+  <div class="hello">
+    Welcome to our site
+    <span style="color: black">
+      {{ utility.user ? utility.getUser()?.fullName : "Dear Visitor" }}!
+    </span>
+  </div>
+
+  <div class="footerText">
+    This website made by: &copy; Artyom Fridman {{ date }}
+  </div>
+</div>

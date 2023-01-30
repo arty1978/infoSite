@@ -4,6 +4,7 @@ const validateSignInUser = require('../../../joi/validationSignIn');
 const authenticateUser = require('../../middlewares/authenticateUser');
 
 async function signInUser(req, res) {
+    console.log(req);
     const { error } = validateSignInUser(req.body);
     if (error)
         return res.status(401).json(error.details[0].message);
@@ -19,7 +20,6 @@ async function signInUser(req, res) {
     });
 }
 function signInStatus(req, res) {
-    console.log(req.jsonwebtoken, '???');
     if (authenticateUser) {
         res.send({
             status: 'success',

@@ -16,11 +16,15 @@ async function createAUserInMongoDb(userDetails) {
 async function signInUser(email, password) {
     try {
         userFromDb = await userModel.findOne({ email: email });
-        console.log(userFromDb, '!!!');
         if (!userFromDb)
             return null;
-        // const result = await bcryptjs.compare(password, userFromDb.password);
-        const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
+        if (userFromDb.tempPassword == password) {
+            userFromDb.tempReset = true
+            return userFromDb;
+        }
+
+        const result = await bcryptjs.compare(password, userFromDb.password);
+        // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
 
         if (result)
             // console.log(result);
@@ -30,6 +34,7 @@ async function signInUser(email, password) {
         return console.log('error occurred');
     }
 }
+
 async function resetPassword(email) {
     try {
         console.log(email, "@@@");
@@ -91,7 +96,7 @@ async function updateUserPass(id, userData) {
 }
 
 async function getOneUser(id, userData) {
-    console.log(id, '$$$');
+    console.log(userData, '$$$');
     try {
         const user = await userModel.findById(id, userData);
         console.log(user, '%%%');

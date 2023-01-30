@@ -30,7 +30,15 @@ export class SignInUserComponent {
       .subscribe((item) => {
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
-
+        if (
+          // item.user.tempReset &&
+          this.form.value.password == item.user.tempPassword
+        ) {
+          console.log(this.form.value.password, item.user.tempPassword);
+          this.router.navigate(['password-recovery']);
+          sub.unsubscribe();
+          return;
+        }
         console.log(item, 'token of logged user');
         this.http.setToken();
         this.utility.setUser(item.user);
@@ -62,6 +70,8 @@ export class SignInUserComponent {
       fullName: '',
       email: '',
       password: '',
+      tempPassword: '',
+      tempReset: false,
     };
     this.buildForm(this.user);
   }

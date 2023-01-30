@@ -5,4 +5,6 @@ export interface Users {
   email: String;
   password: String;
   passwordConfirmation?: String;
+  tempPassword?: String;
+  tempReset?: boolean;
 }
