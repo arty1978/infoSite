@@ -24,7 +24,7 @@ h2 {
 label {
   margin-bottom: 3px;
   margin-right: 8px;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
 }
 
 input {
@@ -42,7 +42,7 @@ button {
   border-radius: 8px;
   border: none;
   background: rgb(165, 232, 227);
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
   font-size: 20px;
   cursor: pointer;
   width: 100%;

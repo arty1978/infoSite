@@ -2,29 +2,34 @@
 
 body {
     background-image: url('../../media/reagan-freeman-4Eu5Qsz7jmI-unsplash.png');
-    // top: 0;
-    margin-top: 0;
+    top: 0;
     height: auto;
     height: 100%;
 }
 
 h1 {
     text-align: center;
-    font-weight: 900;
+    padding-top: 30px;
     margin-bottom: 40px;
     color: $textColor;
     font-family: 'Cormorant Garamond';
     font-size: 2.5em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.346);
+    background-color: rgba(255, 255, 255, 0.329);
+
+    @media (max-width: 480px) {
+        padding-top: 30px;
+    }
 
 }
 
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: $subTitleHome;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px 1px rgba(15, 147, 173, 0.713);
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         font-size: 1.2em;
     }
 }
@@ -32,7 +37,7 @@ h2 {
 .divPara {
     text-align: center;
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         text-align: center;
         margin: 10px;
     }
@@ -42,9 +47,10 @@ p {
     margin-left: 10px;
     margin-bottom: 20px;
     line-height: 1.8;
+    background-color: rgba(255, 255, 255, 0.281);
     color: $textColor;
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         font-size: 0.8em;
     }
 }
@@ -57,7 +63,7 @@ h3 {
     font-family: 'Cormorant Garamond';
     font-size: 1.5em;
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -82,7 +88,7 @@ h3 {
     margin-left: 1rem;
     width: 85%;
 
-    @media (max-width: 767px) {
+    @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
         width: 60vw;
@@ -111,7 +117,6 @@ h3 {
     grid-row: 1/5;
     color: $textColor;
     box-shadow: $gridShadow;
-
 }
 
 .itemh:hover {
@@ -119,8 +124,7 @@ h3 {
     color: rgb(82, 151, 147);
     border-color: rgb(142, 192, 189);
     transform: scale(1.1);
-    background-color: white;
-
+    background-color: rgba(255, 255, 255, 0.633);
 }
 
 .item2 {
@@ -255,6 +259,4 @@ h3 {
     grid-column: 9/12;
     grid-row: 13/17;
     box-shadow: $gridShadow;
-
-
 }

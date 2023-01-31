@@ -27,7 +27,7 @@ td {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
 }
 
 th,
@@ -103,11 +103,11 @@ tr:hover {
   margin-bottom: 2em;
 }
 .card {
-  border: 3px solid rgb(86, 85, 85);
+  border: 3px solid rgb(42, 39, 39);
   border-radius: 10px;
   margin: 30px;
   padding: 10px;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
   display: none;
 }
 @media (max-width: 767px) {
