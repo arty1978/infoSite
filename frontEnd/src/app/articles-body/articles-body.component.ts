@@ -36,27 +36,16 @@ export class ArticlesBodyComponent implements OnInit {
     const sub = this.http
       .put<void>(`articles/updateone?_id=${this.article._id}`, this.article)
       .pipe()
-      .subscribe(
-        () => {
-          console.log(this.article, 'put method');
-          sub.unsubscribe();
-          this.router.navigate(['articles']);
-        }
-        // (err) => {
-        //   alert('חביבי, הייתה שגיאה!');
-        // }
-      );
+      .subscribe(() => {
+        console.log(this.article, 'put method');
+        sub.unsubscribe();
+        this.router.navigate(['articles']);
+      });
   }
 
   add() {
     const data = this.form.value;
 
-    // if (this.alternativeImage) {
-    //   data.image = this.alternativeImage;
-    //   data.imageName = this.alternativeImageName;
-    // }
-
-    // const sub = this.http.post<Articles>('articles', data).subscribe((item) => {
     const sub = this.http
       .post<Articles>('articles/create', data)
       .subscribe((item) => {
@@ -71,13 +60,7 @@ export class ArticlesBodyComponent implements OnInit {
       title: new FormControl(item.title, [Validators.required]),
       subTitle: new FormControl(item.subTitle, [Validators.required]),
       category: new FormControl(item.category, [Validators.required]),
-      // author: new FormControl(item.author, [Validators.required]),
-      // publishDate: new FormControl(
-      //   this.date.transform(item.publishDate, 'yyyy-MM-dd'),
-      //   [Validators.required]
-      // ),
       body: new FormControl(item.body),
-      // imgId: new FormControl(item.imgId, [Validators.required]),
     });
   }
 

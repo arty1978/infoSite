@@ -31,10 +31,21 @@ async function deleteArticle(articleId, userId) {
     }
 }
 
-async function updateArticle(cardId, userId, articleData) {
+async function updateArticle(articleId, userId, articleData) {
     try {
-        console.log(cardId, userId, articleData);
-        const updatedArticle = await articleModel.findByIdAndUpdate({ _id: cardId, userId: userId }, articleData);
+        const updatedArticle = await articleModel.findByIdAndUpdate({ _id: articleId, userId: userId }, articleData);
+        console.log(updatedArticle);
+        return updatedArticle;
+    }
+    catch
+    {
+        return null;
+    }
+}
+async function adminUpdateArticle(articleId, articleData) {
+    try {
+        console.log(articleId, articleData, "admin update opearations!!!!");
+        const updatedArticle = await articleModel.findByIdAndUpdate({ _id: articleId }, articleData);
         console.log(updatedArticle);
         return updatedArticle;
     }
@@ -85,6 +96,7 @@ module.exports = {
     getAllArticles,
     deleteArticle,
     updateArticle,
+    adminUpdateArticle,
     getOneByUserIDAndarticleID,
     getArticlesByUserId,
     getOneArticle

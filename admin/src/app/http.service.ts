@@ -27,7 +27,6 @@ export class HttpService {
   }
 
   get<T>(route: string) {
-    console.log(`${this.url}/${route}`, this.httpOptions);
     return this.httpClient.get<T>(`${this.url}/${route}`, this.httpOptions);
   }
 

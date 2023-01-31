@@ -13,7 +13,7 @@ export class ArticlesComponent implements OnInit {
   signIn: SignIn;
 
   edit(item: Articles) {
-    this.router.navigate(['articles-body', item._id]);
+    this.router.navigate(['edit-articles', item._id]);
   }
   remove(item: Articles) {
     console.log(item);

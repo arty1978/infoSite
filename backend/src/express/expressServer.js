@@ -22,6 +22,7 @@ const signInStatus = require('./handlers/users/signInUser').signInStatus;
 // const resetPassword = require('./handlers/users/reset');
 const signInAdmin = require('./handlers/admin/signInAdmin');
 const registerAdmin = require('./handlers/admin/registerAdmin')
+const adminUpdateArticle = require('./handlers/articles/adminUpdateArticle')
 
 server.use(express.json());
 server.use(cors({
@@ -59,6 +60,9 @@ server.put('/users/updateone', authenticateUser, updateUser)
 
 server.post('/admin/signin', signInAdmin);
 server.post('/admin/create', registerAdmin);
+server.put('/articles/adminupdateone', authenticateUser, adminUpdateArticle);
+server.get('/articles/adminfindarticle', authenticateUser, getOneArticle);
+
 
 
 server.listen(3900, () => console.log('connected to express server on port 3900'));

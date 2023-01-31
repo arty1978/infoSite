@@ -1,0 +1,69 @@
+.frame {
+  width: 400px;
+  max-width: 100%;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5215686275);
+  padding: 12px;
+}
+
+.field {
+  padding: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 3px;
+  color: rgb(141, 155, 208);
+  text-decoration: underline;
+}
+
+input,
+textarea {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #616161;
+}
+
+h2 {
+  text-align: center;
+  color: #4e4e4e;
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background: rgb(158, 173, 232);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[disabled] {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+button:hover {
+  box-shadow: 0 0 6px rgba(148, 148, 148, 0.5215686275);
+  background: rgb(158, 173, 232);
+}
+
+input.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+.editImg {
+  width: 95%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px auto;
+  box-shadow: 0 0 3px black;
+  padding: 0;
+  display: block;
+}/*# sourceMappingURL=edit-articles.component.css.map */
