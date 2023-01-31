@@ -4,14 +4,14 @@
     [class.active]="active === item.route"
     [routerLink]="item.route"
     [hidden]="item.isConnected && !utility.user"
-    >{{ item.title }}</a
+  >
+    <i *ngIf="item.icon" class="fa fa-{{ item.icon }}"></i> {{ item.title }}</a
   >
 
-  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
-
-  <div class="hello" *ngIf="utility.getUser()">
-    Welcome {{ utility.getUser()?.userName }}
-  </div>
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()"
+    ><i class="fa fa-sign-out"></i> Logout</a
+  >
+  <a>Welcome {{ utility.getUser()?.fullName }}!</a>
 </nav>
 
 <div class="burgerContainer">
@@ -20,6 +20,14 @@
 
 <nav class="sidenav" [style.width]="utility.isNavOpen ? '150px' : 0">
   <a class="closebtn" (click)="closeNav()">&times;</a>
-  <p *ngIf="!utility.user"></p>
-  <a routerLink=""></a>
+  <a
+    *ngFor="let item of menu"
+    [class.active]="active === item.route"
+    [routerLink]="item.route"
+    [hidden]="item.isConnected && !utility.user"
+    >{{ item.title }}</a
+  >
+  <a>Welcome {{ utility.getUser() }}!</a>
+
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
 </nav>

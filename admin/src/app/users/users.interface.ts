@@ -5,5 +5,6 @@ export interface Users {
   email: String;
   password: String;
   passwordConfirmation: String;
-  createdAt: string;
+  createdAt: String;
+  updatedtedAt: String;
 }

@@ -3,10 +3,13 @@ nav {
   color: black;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.276);
   margin-bottom: 30px;
+  position: -webkit-sticky;
   position: sticky;
   display: flex;
   top: 0;
-  @media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 767px) {
+  nav {
     display: none;
   }
 }
@@ -16,27 +19,29 @@ a {
   padding: 16px;
   cursor: pointer;
   text-decoration: none;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
   font-weight: bolder;
 }
 
 .hello {
   line-height: 3.13;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
 }
 
 a.active {
-  background-color: rgb(187, 216, 239);
   color: rgb(0, 0, 0);
+  text-decoration: underline;
 }
 
 a:hover {
-  background-color: rgb(211, 195, 195);
+  background-color: rgb(78, 119, 137);
+  color: white;
 }
 
 a[hidden] {
   display: none;
 }
+
 .sidenav {
   height: 100%;
   width: 30vw;
@@ -50,9 +55,10 @@ a[hidden] {
   padding-top: 60px;
   display: none;
   flex-direction: column;
-
-  @media screen and (max-width: 767px) {
-    display: none;
+}
+@media screen and (max-width: 767px) {
+  .sidenav {
+    display: flex;
   }
 }
 
@@ -84,15 +90,15 @@ a[hidden] {
   background-color: rgb(165, 232, 227);
   padding: 20px;
   display: none;
-
-  @media screen and (max-width: 767px) {
-    display: none;
+}
+@media screen and (max-width: 767px) {
+  .burgerContainer {
+    display: flex;
   }
 }
 
 .burger {
-  color: rgb(86, 85, 85);
-
+  color: rgb(42, 39, 39);
   font-size: 1.5rem;
   margin: -20px;
   line-height: 2;
@@ -100,4 +106,4 @@ a[hidden] {
 
 .burger:hover {
   cursor: pointer;
-}
+}/*# sourceMappingURL=navbar.component.css.map */

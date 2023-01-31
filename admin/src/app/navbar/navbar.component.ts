@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../utility.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Menu } from './navbar.interface';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   active: string = '';
-  menu: Menu[] = [{ route: '', title: '' }];
+  menu: Menu[] = [
+    { route: '/users', title: 'Users', icon: 'black-tie' },
+    { route: '/articles', title: 'Articles', icon: 'book' },
+  ];
 
   signOut() {
     if (this.utility.getUser()) {
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit {
       this.utility.removeUser();
     }
   }
+
   closeNav() {
     this.utility.isNavOpen = false;
   }

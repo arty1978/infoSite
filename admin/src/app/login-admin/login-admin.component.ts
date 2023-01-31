@@ -10,7 +10,7 @@ import { UtilityService } from '../utility.service';
 @Component({
   selector: 'app-login-admin',
   templateUrl: './login-admin.component.html',
-  styleUrls: ['./login-admin.component.css'],
+  styleUrls: ['./login-admin.component.scss'],
 })
 export class LoginAdminComponent {
   sub: Subscription;

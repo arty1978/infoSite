@@ -3,7 +3,7 @@
   max-width: 100%;
   margin: 30px auto;
   border-radius: 8px;
-  box-shadow: 0 0 6px #00000085;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5215686275);
   padding: 12px;
 }
 
@@ -50,7 +50,7 @@ button[disabled] {
 }
 
 button:hover {
-  box-shadow: 0 0 6px #94949485;
+  box-shadow: 0 0 6px rgba(148, 148, 148, 0.5215686275);
   background: rgb(158, 173, 232);
 }
 
@@ -66,4 +66,4 @@ input.ng-invalid.ng-dirty {
   box-shadow: 0 0 3px black;
   padding: 0;
   display: block;
-}
+}/*# sourceMappingURL=user-body.component.css.map */

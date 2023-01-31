@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UtilityService } from './utility.service';
 import { UsersComponent } from './users/users.component';
 import { UserBodyComponent } from './user-body/user-body.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { EditArticlesComponent } from './edit-articles/edit-articles.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { UserBodyComponent } from './user-body/user-body.component';
     NavbarComponent,
     UsersComponent,
     UserBodyComponent,
+    ArticlesComponent,
+    EditArticlesComponent,
   ],
   imports: [
     BrowserModule,

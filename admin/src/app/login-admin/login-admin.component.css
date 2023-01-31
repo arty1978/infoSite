@@ -3,6 +3,7 @@ h1 {
   justify-content: center;
   text-decoration: underline;
 }
+
 h2 {
   display: flex;
   justify-content: center;
@@ -14,7 +15,7 @@ h2 {
   max-width: 100%;
   margin: 30px auto;
   border-radius: 20px;
-  box-shadow: 0 0 6px #00000085;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5215686275);
   padding: 20px;
 }
 
@@ -54,7 +55,7 @@ button[disabled] {
 }
 
 button:hover {
-  box-shadow: 0 0 6px #94949485;
+  box-shadow: 0 0 6px rgba(148, 148, 148, 0.5215686275);
   background: rgb(3, 146, 190);
   color: white;
-}
+}/*# sourceMappingURL=login-admin.component.css.map */

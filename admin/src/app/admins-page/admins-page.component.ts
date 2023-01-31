@@ -7,7 +7,7 @@ import { SignIn } from '../login-admin/logIn.interFace';
 @Component({
   selector: 'app-admins-page',
   templateUrl: './admins-page.component.html',
-  styleUrls: ['./admins-page.component.css'],
+  styleUrls: ['./admins-page.component.scss'],
 })
 export class AdminsPageComponent implements OnInit {
   users: Users[] = [];

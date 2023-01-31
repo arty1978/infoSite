@@ -8,7 +8,7 @@ import { Users } from '../users/users.interface';
 @Component({
   selector: 'app-user-body',
   templateUrl: './user-body.component.html',
-  styleUrls: ['./user-body.component.css'],
+  styleUrls: ['./user-body.component.scss'],
 })
 export class UserBodyComponent {
   sub: Subscription;
@@ -73,6 +73,7 @@ export class UserBodyComponent {
           password: '',
           passwordConfirmation: '',
           createdAt: '',
+          updatedtedAt: '',
         };
 
         this.buildForm(this.user);

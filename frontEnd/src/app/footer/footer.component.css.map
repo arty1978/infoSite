@@ -1,1 +1,11 @@
-{"version":3,"sources":["footer.component.scss","../../_variables.scss","footer.component.css"],"names":[],"mappings":"AAEA;EACI,8BCHO;EDIP,YAAA;EACA,eAAA;EACA,SAAA;EACA,gDAAA;EACA,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,kBAAA;AEDJ;;AFIA;EACI,iBAAA;EACA,YAAA;EACA,qBAAA;EACA,iBAAA;EACA,qBAAA;AEDJ;;AFIA;EACI,kBAAA;AEDJ;;AFIA;EACI,kBAAA;EACA,YAAA;EACA,gBAAA;AEDJ;AFGI;EALJ;IAMQ,aAAA;EEAN;AACF;;AFII;EADJ;IAEQ,aAAA;EEAN;AACF;;AFII;EADJ;IAEQ,qBAAA;IACA,iBAAA;EEAN;AACF","file":"footer.component.css"}
+{
+    "version": 3,
+    "sources": [
+        "footer.component.scss",
+        "../../_variables.scss",
+        "footer.component.scss"
+    ],
+    "names": [],
+    "mappings": "AAEA;EACI,8BCHO;EDIP,YAAA;EACA,eAAA;EACA,SAAA;EACA,gDAAA;EACA,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,kBAAA;AEDJ;;AFIA;EACI,iBAAA;EACA,YAAA;EACA,qBAAA;EACA,iBAAA;EACA,qBAAA;AEDJ;;AFIA;EACI,kBAAA;AEDJ;;AFIA;EACI,kBAAA;EACA,YAAA;EACA,gBAAA;AEDJ;AFGI;EALJ;IAMQ,aAAA;EEAN;AACF;;AFII;EADJ;IAEQ,aAAA;EEAN;AACF;;AFII;EADJ;IAEQ,qBAAA;IACA,iBAAA;EEAN;AACF",
+    "file": "footer.component.scss"
+}

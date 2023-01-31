@@ -8,20 +8,23 @@
       <th>Full Name</th>
       <th>Email</th>
       <th>Registered at</th>
+      <th>Edited at</th>
       <th>Operations</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let a of user; let i = index" (dblclick)="edit(a)">
+    <tr *ngFor="let a of user.reverse(); let i = index" (dblclick)="edit(a)">
       <td>{{ i + 1 }}</td>
       <td>{{ a.userName }}</td>
       <td>{{ a.fullName }}</td>
       <td>{{ a.email }}</td>
       <td>{{ a.createdAt }}</td>
+      <td>{{ a.updatedtedAt }}</td>
       <td>
         <button class="edit" (click)="edit(a)">Edit</button>
-        <button class="remove" (click)="remove(a)">Remove</button>
       </td>
+      <td><button class="remove" (click)="remove(a)">Remove</button></td>
     </tr>
   </tbody>
 </table>
