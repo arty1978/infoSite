@@ -4,6 +4,7 @@ const operations = require('../../../mongoose/controllers/UserOperations');
 
 async function updateUser(req, res) {
     const userId = req.query._id;
+    console.log(userId, '!!!!!!!!!');
     if (!userId) {
         return res.status(400).json('user Id not deliverd');
     }

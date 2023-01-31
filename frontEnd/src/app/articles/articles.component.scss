@@ -11,7 +11,7 @@ table {
     border-collapse: collapse;
     width: 100%;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: none;
     }
 }
@@ -62,7 +62,7 @@ tr:hover {
     transition: 0.3s;
     border: none;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         margin: 15px;
         padding: 5px;
     }
@@ -75,7 +75,7 @@ tr:hover {
     transition: 0.2s;
     border: none;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         margin: 15px;
         padding: 5px;
     }
@@ -92,7 +92,7 @@ tr:hover {
 .buttonContainer {
     display: inline;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: flex;
     }
 }
@@ -106,7 +106,7 @@ tr:hover {
     background-color: rgba(158, 209, 222, 0.461);
     margin-bottom: 2em;
 
-    @media (max-width: 480px) {}
+    @media (max-width: 767px) {}
 }
 
 .card {
@@ -117,7 +117,7 @@ tr:hover {
     color: $textColor;
     display: none;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: block;
     }
 }

@@ -1,0 +1,47 @@
+.fContain {
+  background: rgb(165, 232, 227);
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.598);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px auto;
+}
+
+a {
+  padding-left: 6px;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+a.active {
+  padding-left: 12px;
+}
+
+.aFooter a {
+  margin-right: 10px;
+  height: auto;
+  margin-top: auto;
+}
+@media (max-width: 767px) {
+  .aFooter a {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile {
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+}/*# sourceMappingURL=footer.component.css.map */

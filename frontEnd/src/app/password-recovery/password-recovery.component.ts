@@ -13,8 +13,17 @@ import { UtilityService } from '../utility.service';
 })
 export class PasswordRecoveryComponent {
   sub: Subscription;
-  user: Users;
-  form: FormGroup;
+  user: any = this.utility.user;
+  form: FormGroup = new FormGroup({
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
+    ]),
+    checkedPassword: new FormControl('', [
+      Validators.required,
+      Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
+    ]),
+  });
 
   send() {
     if (this.form.value.password == this.form.value.passwordConfirmation) {
@@ -23,7 +32,7 @@ export class PasswordRecoveryComponent {
       this.user.tempPassword = '';
     }
     const sub = this.http
-      .put<Users>(`users/updateone/${this.user._id}`, this.user)
+      .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
       .subscribe((item) => {
         sub.unsubscribe();
         this.router.navigate(['articles']);

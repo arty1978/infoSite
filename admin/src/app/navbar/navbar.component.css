@@ -6,7 +6,7 @@ nav {
   position: sticky;
   display: flex;
   top: 0;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -51,7 +51,7 @@ a[hidden] {
   display: none;
   flex-direction: column;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -85,7 +85,7 @@ a[hidden] {
   padding: 20px;
   display: none;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }

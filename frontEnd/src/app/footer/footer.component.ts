@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Menu } from '../navbar/navbar.interface';
 import { UtilityService } from '../utility.service';
@@ -9,14 +9,13 @@ import { UtilityService } from '../utility.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   active: string = '';
   user: UtilityService;
+  screenSize: string;
   menu: Menu[] = [
     { route: '/', title: 'Home', icon: 'home' },
     { route: '/articles', title: 'Articles', isConnected: true, icon: 'book' },
-    /* { route: '/signup', title: 'SignUp' },
-    { route: '/signin', title: 'SignIn' }, */
   ];
   date: any = new Date().getFullYear();
 
@@ -39,6 +38,13 @@ export class FooterComponent {
     });
   }
   ngOnInit(): void {
-    const user = this.utility.getUser();
+    this.utility.getUser();
+    this.screenSize = window.innerWidth <= 767 ? 'mobile' : 'desktop';
+    this.onResize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.screenSize = window.innerWidth <= 767 ? 'mobile' : 'desktop';
   }
 }

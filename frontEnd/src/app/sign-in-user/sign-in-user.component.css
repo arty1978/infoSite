@@ -1,25 +1,33 @@
-.frame {
+h2 {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  font-family: "Cormorant Garamond";
+  font-size: 2em;
+  margin-bottom: 1.5rem;
+}
+
+.formFrame {
   width: 400px;
   max-width: 100%;
   margin: 30px auto;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5215686275);
-  padding: 12px;
+  padding: 20px;
+  margin-top: 5rem;
 }
 
 .field {
-  padding: 8px;
+  padding: 15px;
 }
 
 label {
-  display: block;
   margin-bottom: 3px;
-  color: rgb(141, 155, 208);
-  text-decoration: underline;
+  margin-right: 8px;
+  color: rgb(86, 85, 85);
 }
 
-input,
-textarea {
+input {
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
@@ -28,17 +36,13 @@ textarea {
   border: 1px solid #616161;
 }
 
-h2 {
-  text-align: center;
-  color: #4e4e4e;
-}
-
 button {
+  margin-top: 1.6rem;
   padding: 12px 16px;
   border-radius: 8px;
   border: none;
-  background: rgb(158, 173, 232);
-  color: white;
+  background: rgb(165, 232, 227);
+  color: rgb(86, 85, 85);
   font-size: 20px;
   cursor: pointer;
   width: 100%;
@@ -51,9 +55,16 @@ button[disabled] {
 
 button:hover {
   box-shadow: 0 0 6px rgba(148, 148, 148, 0.5215686275);
-  background: rgb(158, 173, 232);
+  background: rgb(78, 119, 137);
+  color: white;
 }
 
-input.ng-invalid.ng-dirty {
-  border: 1px solid red;
+a,
+.message {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  font-family: "Cormorant Garamond";
+  font-size: 1.5em;
+  margin-top: 1rem;
 }/*# sourceMappingURL=sign-in-user.component.css.map */

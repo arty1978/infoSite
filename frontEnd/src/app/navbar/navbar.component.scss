@@ -8,7 +8,7 @@ nav {
     display: flex;
     top: 0;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: none;
     }
 }
@@ -57,7 +57,7 @@ a[hidden] {
     display: none;
     flex-direction: column;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: flex;
     }
 
@@ -93,7 +93,7 @@ a[hidden] {
     padding: 20px;
     display: none;
 
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
         display: flex;
     }
 

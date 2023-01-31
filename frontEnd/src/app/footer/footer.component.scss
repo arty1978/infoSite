@@ -6,13 +6,17 @@
     position: fixed;
     bottom: 0;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.598);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px auto;
 }
 
 a {
     padding-left: 6px;
     color: black;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     display: inline-block;
 }
 
@@ -20,27 +24,25 @@ a.active {
     padding-left: 12px;
 }
 
-.fContain {
-    display: flex;
-    justify-content: space-around;
-}
-
-.aFotter a {
+.aFooter a {
     margin-right: 10px;
-
-}
-
-.hello {
-    color: $textColor;
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-}
-
-.footerText {
     height: auto;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: $textColor;
+    margin-top: auto;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.mobile {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.mobile {
+    @media (max-width: 767px) {
+        display: inline-block;
+        font-size: 1.2rem;
+    }
 }

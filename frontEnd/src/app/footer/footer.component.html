@@ -1,5 +1,5 @@
 <div class="fContain">
-  <div class="aFotter">
+  <div class="aFooter">
     <a
       *ngFor="let item of menu"
       [routerLink]="item.route"
@@ -7,21 +7,27 @@
       [hidden]="item.isConnected && !utility.user"
       >{{ item.title }}</a
     >
-    <!--     <p *ngIf="!utility.user"></p>
- -->
     <a routerLink="signin"> Login</a>
     <a routerLink="signup"> SignUp</a>
     <a *ngIf="utility.user" routerLink="" (click)="logout()"> Logout</a>
   </div>
-
-  <div class="hello">
-    Welcome to our site
-    <span style="color: black">
-      {{ utility.user ? utility.getUser()?.fullName : "Dear Visitor" }}!
-    </span>
-  </div>
-
-  <div class="footerText">
-    This website made by: &copy; Artyom Fridman {{ date }}
-  </div>
+  <a href="https://wa.me/+972506095185?text=Hello"
+    ><i class="fa fa-whatsapp"></i
+  ></a>
+  <a href="https://www.linkedin.com/in/artyom-fridman"
+    ><i class="fa fa-linkedin-square"></i
+  ></a>
+  <a
+    class="aFooter"
+    href="mailto:artyomf@walla.co.il"
+    *ngIf="screenSize !== 'mobile'"
+    ><i class="fa fa-envelope"></i> This website made by: &copy; Artyom Fridman
+    {{ date }}</a
+  >
+  <a
+    class="aFooter"
+    href="mailto:artyomf@walla.co.il"
+    *ngIf="screenSize === 'mobile'"
+    ><i class="fa fa-envelope"></i> &copy; Artyom Fridman {{ date }}</a
+  >
 </div>

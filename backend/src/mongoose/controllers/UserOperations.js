@@ -25,11 +25,12 @@ async function signInUser(email, password) {
             userFromDb.password = '';
             userFromDb.passwordConfirmation = '';
             userFromDb.tempReset = true;
+            const result = await bcryptjs.compare(password, userFromDb.tempPassword);
             return userFromDb;
         }
 
-        const result = await bcryptjs.compare(password, userFromDb.tempPassword);
         console.log(result, 'result');
+        const result = await bcryptjs.compare(password, userFromDb.passwordConfirmation);
         // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
 
         if (result)
