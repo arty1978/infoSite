@@ -14,43 +14,27 @@ async function createAUserInMongoDb(userDetails) {
     }
 }
 async function signInUser(email, password) {
-    console.log(email, password);
     try {
         userFromDb = await userModel.findOne({ email: email });
-        // console.log(userFromDb, 'userfrom db');
         if (!userFromDb)
             return null;
-        console.log(userFromDb.tempPassword, password);
-        if (userFromDb.tempPassword === password) {
-            userFromDb.password = '';
-            userFromDb.passwordConfirmation = '';
-            userFromDb.tempReset = true;
-            const result = await bcryptjs.compare(password, userFromDb.tempPassword);
-            return userFromDb;
-        }
-
-        console.log(result, 'result');
-        const result = await bcryptjs.compare(password, userFromDb.passwordConfirmation);
+        const result = await bcryptjs.compare(password, userFromDb.password);
         // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
 
         if (result)
-            // console.log(result);
             return userFromDb;
-        // return null
+
     } catch {
         return console.log('error occurred');
     }
 }
-
 async function resetPassword(email) {
+
     try {
-        console.log(email, "@@@");
         userFromDb = await userModel.findOne(email);
-        console.log(userFromDb, '!!!');
         if (!userFromDb)
             return null;
 
-        console.log(userFromDb, '???');
         return userFromDb;
     } catch {
         return console.log('error occurred');
@@ -78,7 +62,6 @@ async function deleteUser(id) {
 }
 
 async function updateUser(id, userData) {
-    console.log(id, userData, '???');
     try {
         userData.password = bcryptjs.hashSync(userData.password);
         userData.passwordConfirmation = bcryptjs.hashSync(userData.passwordConfirmation);
@@ -103,10 +86,8 @@ async function updateUserPass(id, userData) {
 }
 
 async function getOneUser(id, userData) {
-    console.log(userData, '$$$');
     try {
         const user = await userModel.findById(id, userData);
-        console.log(user, '%%%');
         return user;
     }
     catch {

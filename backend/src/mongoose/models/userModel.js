@@ -12,8 +12,8 @@ const userSchema = mongoose.Schema({
     passwordConfirmation: String,
     createdAt: String,
     updatedtedAt: String,
-    tempPassword: String,
-    tempReset: Boolean
+    // tempPassword: String,
+    // tempReset: Boolean
 });
 userSchema.plugin(uniqueValidator);
 userSchema.pre('save', (next) => {

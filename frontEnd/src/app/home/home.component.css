@@ -1,12 +1,13 @@
 body {
   background-image: url("../../media/reagan-freeman-4Eu5Qsz7jmI-unsplash.png");
-  top: 0;
+  margin-top: 0;
   height: auto;
   height: 100%;
 }
 
 h1 {
   text-align: center;
+  font-weight: 900;
   margin-bottom: 40px;
   color: rgb(86, 85, 85);
   font-family: "Cormorant Garamond";
