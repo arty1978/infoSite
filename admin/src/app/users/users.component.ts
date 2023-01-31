@@ -13,12 +13,10 @@ export class UsersComponent {
   user: Users[] = [];
   signIn: SignIn;
   edit(item: Users) {
-    console.log(item._id, '!!!');
     this.router.navigate(['user-body', item._id]);
     // this.router.navigateByUrl(`user-body?id=${item._id}`);
   }
   remove(item: Users) {
-    console.log(item);
     localStorage.getItem('token');
     const sub = this.http
       .delete<Users>(`users/deleteone/${item._id}`)
@@ -33,11 +31,9 @@ export class UsersComponent {
   ngOnInit() {
     localStorage.getItem('token');
     const userId = localStorage.getItem('user');
-    console.log(userId, '!!!');
 
     const sub = this.http.get<Users[]>(`users`).subscribe((data) => {
       this.user = data;
-      console.log(this.user);
 
       sub.unsubscribe();
     });

@@ -8,7 +8,6 @@ async function getOneArticle(req, res) {
     if (!articleId) {
         return res.status(400).json('article Id not delivered');
     }
-    console.log(articleId, 'article id');
     const article = await operations.getOneArticle(articleId, req.body);
     res.json(article)
 }

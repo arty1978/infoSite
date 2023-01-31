@@ -16,8 +16,6 @@ export class UserBodyComponent {
   form: FormGroup;
 
   update() {
-    console.log(this.form);
-
     for (const k in this.form.value) {
       (this.user as any)[k] = this.form.value[k];
     }
@@ -26,14 +24,12 @@ export class UserBodyComponent {
       .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
       .pipe()
       .subscribe(() => {
-        console.log(this.user, 'put method');
         sub.unsubscribe();
         this.router.navigate(['users']);
       });
   }
 
   buildForm(item: Users) {
-    console.log('inside buildForm');
     this.form = new FormGroup({
       userName: new FormControl(item.userName, [Validators.required]),
       fullName: new FormControl(item.fullName, [Validators.required]),
@@ -52,14 +48,12 @@ export class UserBodyComponent {
   ) {
     this.sub = this.route.params.subscribe((data) => {
       const id: any = data['id'];
-      console.log(id);
 
       if (id) {
         const sub = this.http
           .get<Users>(`users/finduser?_id=${id}`)
           .subscribe((data) => {
             this.user = data;
-            console.log(this.user);
 
             this.buildForm(this.user);
             sub.unsubscribe();

@@ -16,7 +16,6 @@ export class AdminsPageComponent implements OnInit {
     this.router.navigate(['users/updateone', item._id]);
   }
   remove(item: Users) {
-    console.log(item);
     const sub = this.http
       .delete<Users>(`users/deleteone/${item._id}`)
       .subscribe((data) => {
@@ -31,11 +30,9 @@ export class AdminsPageComponent implements OnInit {
   ngOnInit(): void {
     localStorage.getItem('token');
     const adminId = localStorage.getItem('user');
-    console.log(localStorage.getItem('token'), 'token', adminId, '!!!');
 
     const sub = this.http.get<Users[]>('users').subscribe((data) => {
       this.users = data;
-      console.log(this.users, '!!!');
     });
     sub.unsubscribe();
   }

@@ -17,14 +17,12 @@ export class SignUpUserComponent implements OnInit {
 
   send() {
     const data = this.form.value;
-    console.log(data, 'inside add function');
 
     const sub = this.http
       .post<Users>('users/create', data)
       .subscribe((item) => {
         sub.unsubscribe();
         this.router.navigate(['articles']);
-        console.log(this.user, 'inside post method signup.ts');
       });
   }
   buildForm(item: Users) {
@@ -63,7 +61,6 @@ export class SignUpUserComponent implements OnInit {
   ) {
     this.sub = this.route.params.subscribe((data) => {
       const id: any = data['id'];
-      console.log(this.user, 'form constructor in signup component.ts');
       if (id) {
         const sub = this.http
           .get<Users>(`users/finduser/${id}`)
@@ -81,7 +78,6 @@ export class SignUpUserComponent implements OnInit {
           password: '',
         };
         this.buildForm(this.user);
-        console.log(this.user, 'inside constructor signup.ts');
       }
     });
   }

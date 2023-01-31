@@ -36,7 +36,6 @@ export class PasswordRecoveryComponent {
       .subscribe((item) => {
         sub.unsubscribe();
         this.router.navigate(['articles']);
-        console.log(this.user, 'inside post method signup.ts');
       });
   }
   buildForm(item: Users) {
@@ -67,32 +66,7 @@ export class PasswordRecoveryComponent {
     private route: ActivatedRoute,
     private router: Router,
     public utility: UtilityService
-  ) {
-    // this.sub = this.route.params.subscribe((data) => {
-    //   const id: any = this.utility.user?._id;
-    //   console.log(id, 'id');
-    //   if (id) {
-    //     const sub = this.http
-    //       .get<Users>(`users/finduser/${id}`)
-    //       .subscribe((data) => {
-    //         this.user = data;
-    //         console.log(this.user, 'inside constructor signup.ts');
-    //         this.buildForm(this.user);
-    //         sub.unsubscribe();
-    //       });
-    //   } else {
-    //     this.user = {
-    //       _id: 0,
-    //       userName: '',
-    //       fullName: '',
-    //       email: '',
-    //       password: '',
-    //     };
-    //     this.buildForm(this.user);
-    //     console.log(this.user, 'inside constructor signup.ts');
-    //   }
-    // });
-  }
+  ) {}
   ngOnInit() {}
 
   ngOnDestroy() {

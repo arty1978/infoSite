@@ -7,12 +7,10 @@ async function signInAdmin(req, res) {
     if (error)
         return res.status(401).json(error.details[0].message);
     const { email, password } = req.body;
-    console.log({ email, password });
     const userFromDb = await operations.signInAdmin(email, password);
     if (!userFromDb)
         return res.status(500).json('no user found');
     const token = jsonwebtoken.sign({ userid: userFromDb._id }, 'webToken');
-    console.log(token, 'this is token');
     return res.json({
         token,
         user: userFromDb

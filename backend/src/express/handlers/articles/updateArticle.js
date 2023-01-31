@@ -4,7 +4,6 @@ const operations = require('../../../mongoose/controllers/articleOperations');
 async function updateArticle(req, res) {
     const articleID = req.query._id;
     const userID = req.articleID
-    console.log(req.body);
 
     if (!articleID) {
         return res.status(400).json('Id not supported')

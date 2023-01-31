@@ -16,8 +16,8 @@ export class ArticlesComponent implements OnInit {
     this.router.navigate(['articles-body', item._id]);
   }
   remove(item: Articles) {
-    console.log(item);
     localStorage.getItem('token');
+
     const sub = this.http
       .delete<Articles>(`articles/deleteone/${item._id}`)
       .subscribe((data) => {
@@ -26,12 +26,13 @@ export class ArticlesComponent implements OnInit {
         sub.unsubscribe();
       });
   }
+
   constructor(private http: HttpService, private router: Router) {}
 
   ngOnInit() {
     localStorage.getItem('token');
+
     const userId = localStorage.getItem('user');
-    console.log(userId, '!!!');
 
     const sub = this.http
       .get<Articles[]>(`articles/getMyArticles?_id=${userId}`)

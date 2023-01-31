@@ -1,7 +1,6 @@
 const operations = require('../../../mongoose/controllers/articleOperations');
 
 async function getOneByUserIDAndarticleID(req, res) {
-    console.log(req.query._id);
 
     const articleId = req.query._id;
     if (!articleId)

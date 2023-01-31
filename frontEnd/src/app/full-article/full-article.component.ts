@@ -26,7 +26,6 @@ export class FullArticleComponent {
           .get<Articles>(`articles/findarticle?_id=${id}`)
           .subscribe((data) => {
             this.article = data;
-            console.log(this.article, 'full article.ts ');
             sub.unsubscribe();
           });
       }

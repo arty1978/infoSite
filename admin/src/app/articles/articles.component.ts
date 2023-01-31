@@ -16,7 +16,6 @@ export class ArticlesComponent implements OnInit {
     this.router.navigate(['edit-articles', item._id]);
   }
   remove(item: Articles) {
-    console.log(item);
     localStorage.getItem('token');
     const sub = this.http
       .delete<Articles>(`articles/deleteone/${item._id}`)

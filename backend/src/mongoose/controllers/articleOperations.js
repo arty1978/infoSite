@@ -34,7 +34,6 @@ async function deleteArticle(articleId, userId) {
 async function updateArticle(articleId, userId, articleData) {
     try {
         const updatedArticle = await articleModel.findByIdAndUpdate({ _id: articleId, userId: userId }, articleData);
-        console.log(updatedArticle);
         return updatedArticle;
     }
     catch
@@ -44,9 +43,7 @@ async function updateArticle(articleId, userId, articleData) {
 }
 async function adminUpdateArticle(articleId, articleData) {
     try {
-        console.log(articleId, articleData, "admin update opearations!!!!");
         const updatedArticle = await articleModel.findByIdAndUpdate({ _id: articleId }, articleData);
-        console.log(updatedArticle);
         return updatedArticle;
     }
     catch
@@ -57,7 +54,6 @@ async function adminUpdateArticle(articleId, articleData) {
 
 async function getOneArticle(id, articleData) {
     try {
-        console.log(id, articleData, 'id+article');
         const article = await articleModel.findById(id, articleData);
         return article;
     }
@@ -66,7 +62,6 @@ async function getOneArticle(id, articleData) {
     }
 }
 async function getOneByUserIDAndarticleID(userId, articleId) {
-    console.log('getOneByUserIDAndarticleID', userId, articleId);
     try {
         const oneArticle = await articleModel.findOne({
             userId: userId,

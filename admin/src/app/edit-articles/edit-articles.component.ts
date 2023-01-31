@@ -18,8 +18,6 @@ export class EditArticlesComponent implements OnInit {
   author: Users;
 
   update() {
-    console.log(this.form);
-
     for (const k in this.form.value) {
       (this.article as any)[k] = this.form.value[k];
     }
@@ -31,14 +29,12 @@ export class EditArticlesComponent implements OnInit {
       )
       .pipe()
       .subscribe(() => {
-        console.log(this.article, 'put method');
         sub.unsubscribe();
         this.router.navigate(['articles']);
       });
   }
 
   buildForm(item: Articles) {
-    console.log('inside buildForm');
     if (item) {
       this.form = new FormGroup({
         title: new FormControl(item.title, [Validators.required]),
@@ -56,14 +52,12 @@ export class EditArticlesComponent implements OnInit {
   ) {
     this.sub = this.route.params.subscribe((data) => {
       const id: any = data['id'];
-      console.log(id);
 
       if (id) {
         const sub = this.http
           .get<Articles>(`articles/adminfindarticle?_id=${id}`)
           .subscribe((data) => {
             this.article = data;
-            console.log(this.article);
 
             this.buildForm(this.article);
             sub.unsubscribe();

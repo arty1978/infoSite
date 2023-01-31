@@ -14,7 +14,6 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['users-body', item._id]);
   }
   remove(item: Users) {
-    console.log(item);
     const sub = this.http
       .delete<void>(`users/deleteone/${item._id}`)
       .subscribe((data) => {

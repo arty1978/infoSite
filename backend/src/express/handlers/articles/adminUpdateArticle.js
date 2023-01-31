@@ -8,9 +8,7 @@ async function updateArticle(req, res) {
         return res.status(400).json('Id not supported')
     }
     req.body.updatedtedAt = new Date().toLocaleString();
-    console.log();
     const result = await operations.adminUpdateArticle(articleID, req.body);
-    console.log(result, 'adminUpdate result');
 
     if (result !== null) {
         return res.json('article updated successfully')

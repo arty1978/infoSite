@@ -15,16 +15,13 @@ async function createAdminInMongoDb(userDetails) {
 }
 async function signInAdmin(email, password) {
     try {
-        console.log({ email: email }, '!!!');
         adminFromDb = await adminModel.findOne({ email: email });
         if (!adminFromDb)
             return null;
         const result = Promise.resolve(bcryptjs.compare(password, adminFromDb.password));
 
         if (result)
-            // console.log(result);
             return adminFromDb;
-        // return null
     } catch {
         return console.log('error occurred');
     }

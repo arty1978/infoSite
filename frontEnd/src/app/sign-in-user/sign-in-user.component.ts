@@ -34,12 +34,10 @@ export class SignInUserComponent {
           // item.user.tempReset &&
           this.form.value.password == item.user.tempPassword
         ) {
-          console.log(this.form.value.password, item.user.tempPassword);
           this.router.navigate(['password-recovery']);
           sub.unsubscribe();
           return;
         }
-        console.log(item, 'token of logged user');
         this.http.setToken();
         this.utility.setUser(item.user);
 

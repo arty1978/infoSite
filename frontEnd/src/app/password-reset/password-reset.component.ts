@@ -25,18 +25,14 @@ export class PasswordResetComponent {
     const sub = this.http
       .post<SignIn>('users/reset', data)
       .subscribe((item) => {
-        console.log(item, '!!!');
-
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
 
-        console.log(item, 'token of logged user');
         this.http.setToken();
         this.utility.setUser(item.user);
 
         sub.unsubscribe();
         if (this.user._id) this.router.navigate(['password-recovery']);
-        console.log(sub, 'inside post method signin.ts');
       });
   }
   buildForm(item: Users) {
