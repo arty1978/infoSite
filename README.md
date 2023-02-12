@@ -26,3 +26,5 @@ Conclusion:
 
 The article site provides a platform for registered users to write and publish articles while allowing a site administrator to manage user information and article content.
 The siteis secure, accessible, and visually appealing to attract and retain users.
+
+ps. to register as administrator, you have to register directly in mongodb and then to login from the site
