@@ -1,7 +1,6 @@
 nav {
   background-color: rgb(165, 232, 227);
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.276);
-  position: -webkit-sticky;
   position: sticky;
   display: flex;
   top: 0;
@@ -104,4 +103,4 @@ a[hidden] {
 
 .burger:hover {
   cursor: pointer;
-} /*# sourceMappingURL=navbar.component.scss.map */
+}/*# sourceMappingURL=navbar.component.css.map */
