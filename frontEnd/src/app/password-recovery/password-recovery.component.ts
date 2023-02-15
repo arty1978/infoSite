@@ -19,17 +19,22 @@ export class PasswordRecoveryComponent {
       Validators.required,
       Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
     ]),
-    checkedPassword: new FormControl('', [
+    passwordConfirmation: new FormControl('', [
       Validators.required,
       Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
     ]),
   });
 
   send() {
+    console.log('hi');
+
     if (this.form.value.password == this.form.value.passwordConfirmation) {
+      console.log('true');
+
       this.user.password = this.form.value.password;
       this.user.tempReset = false;
       this.user.tempPassword = '';
+      console.log(this.form.value.password, '####');
     }
     const sub = this.http
       .put<void>(`users/updateone?_id=${this.user._id}`, this.user)

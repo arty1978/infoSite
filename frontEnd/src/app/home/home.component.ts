@@ -9,6 +9,7 @@ import { Articles } from '../articles/articles.interface';
 })
 export class HomeComponent {
   articles: Articles[] = [];
+  searchVal: string;
 
   constructor(private http: HttpService, private router: Router) {}
 

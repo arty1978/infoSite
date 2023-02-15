@@ -34,6 +34,7 @@ export class PasswordResetComponent {
         sub.unsubscribe();
         if (this.user._id) this.router.navigate(['password-recovery']);
       });
+    //עלינו לשלוח מייל ללקוח
   }
   buildForm(item: Users) {
     this.form = new FormGroup({

@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Articles } from './articles.interface';
 import { SignIn } from '../sign-in-user/signIn.interFace';
+import { FilterPipe } from '../filter.pipe';
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
@@ -11,6 +14,9 @@ import { SignIn } from '../sign-in-user/signIn.interFace';
 export class ArticlesComponent implements OnInit {
   articles: Articles[] = [];
   signIn: SignIn;
+  title = 'angular-text-search-highlight';
+  searchText = '';
+  characters: Articles[] = [];
 
   edit(item: Articles) {
     this.router.navigate(['articles-body', item._id]);

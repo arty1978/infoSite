@@ -19,7 +19,8 @@ const updateUser = require('./handlers/users/updateUser');
 const getOneUser = require('./handlers/users/findUser');
 const authenticateUser = require('./middlewares/authenticateUser');//1
 const signInStatus = require('./handlers/users/signInUser').signInStatus;
-// const resetPassword = require('./handlers/users/reset');
+const resetPassword = require('./handlers/users/reset');
+
 const signInAdmin = require('./handlers/admin/signInAdmin');
 const registerAdmin = require('./handlers/admin/registerAdmin')
 const adminUpdateArticle = require('./handlers/articles/adminUpdateArticle')
@@ -56,7 +57,7 @@ server.get('/users/signin', signInStatus);
 server.delete('/users/deleteone/:id', authenticateUser, deleteUser);
 server.get('/users/finduser', authenticateUser, getOneUser);//2
 server.put('/users/updateone', authenticateUser, updateUser)
-// server.post('/users/reset', resetPassword)
+server.post('/users/reset', resetPassword)
 
 server.post('/admin/signin', signInAdmin);
 server.post('/admin/create', registerAdmin);

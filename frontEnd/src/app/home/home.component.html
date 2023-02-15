@@ -20,10 +20,20 @@
     Don't forget to click an article you like to open it in full view:
   </h3>
 
+  <input
+    class="form-controlCustom"
+    type="search"
+    [(ngModel)]="searchVal"
+    placeholder="חיפוש"
+  />
+
   <div class="wraper">
     <div class="gridContainer">
       <div
-        *ngFor="let a of articles.slice(-9).reverse(); let i = index"
+        *ngFor="
+          let a of articles.slice(-9).reverse() | search : searchVal;
+          let i = index
+        "
         class="item{{ i + 1 }} itemh"
       >
         <a

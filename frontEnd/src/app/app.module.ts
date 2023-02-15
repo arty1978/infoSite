@@ -20,6 +20,7 @@ import { UtilityService } from './utility.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 import { FooterComponent } from './footer/footer.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FooterComponent } from './footer/footer.component';
     PasswordResetComponent,
     PasswordRecoveryComponent,
     FooterComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

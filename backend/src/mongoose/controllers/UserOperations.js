@@ -15,9 +15,16 @@ async function createAUserInMongoDb(userDetails) {
 }
 async function signInUser(email, password) {
     try {
+
         userFromDb = await userModel.findOne({ email: email });
+
         if (!userFromDb)
             return null;
+        if (userFromDb.tempPassword == password) {
+            userFromDb.tempReset = true
+            return userFromDb;
+        }
+
         const result = await bcryptjs.compare(password, userFromDb.password);
         // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
 

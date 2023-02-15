@@ -5,12 +5,15 @@ const authenticateUser = require('../../middlewares/authenticateUser');
 
 async function signInUser(req, res) {
     const { error } = validateSignInUser(req.body);
+
     if (error)
         return res.status(401).json(error.details[0].message);
 
     const { email, password } = req.body;
 
     const userFromDb = await operations.signInUser(email, password);
+    console.log(userFromDb);
+
     if (!userFromDb)
         return res.status(500).json('no user found');
 
@@ -22,7 +25,7 @@ async function signInUser(req, res) {
 }
 
 function signInStatus(req, res) {
-    
+
     if (authenticateUser) {
         res.send({
             status: 'success',

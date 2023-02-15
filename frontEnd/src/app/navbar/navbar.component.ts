@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from '../utility.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Menu } from './navbar.interface';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
