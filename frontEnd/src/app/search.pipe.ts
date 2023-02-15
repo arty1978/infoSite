@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'search'
+  name: 'search',
 })
 export class SearchPipe implements PipeTransform {
   transform(arr: any[], searchVal: string): any[] {
@@ -12,15 +12,18 @@ export class SearchPipe implements PipeTransform {
       return arr;
     }
 
-    return arr.filter(obj => {
+    return arr.filter((obj) => {
       for (const key in obj) {
-        if (!obj[key]) {continue;}
+        if (!obj[key]) {
+          continue;
+        }
         const val = obj[key].toString().toLowerCase().trim();
         if (val.includes(searchVal.toLowerCase().trim())) {
           return true;
         }
+        console.log(obj.key);
       }
-      return false
+      return false;
     });
   }
 }

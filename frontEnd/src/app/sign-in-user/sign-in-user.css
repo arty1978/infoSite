@@ -2,6 +2,9 @@ h2 {
   display: flex;
   justify-content: center;
   text-decoration: underline;
+  font-family: "Cormorant Garamond";
+  font-size: 2em;
+  margin-bottom: 1.5rem;
 }
 
 .formFrame {
@@ -11,13 +14,7 @@ h2 {
   border-radius: 20px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5215686275);
   padding: 20px;
-}
-
-h3 {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
+  margin-top: 5rem;
 }
 
 .field {
@@ -27,11 +24,10 @@ h3 {
 label {
   margin-bottom: 3px;
   margin-right: 8px;
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
 }
 
-input,
-textarea {
+input {
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
@@ -41,11 +37,12 @@ textarea {
 }
 
 button {
+  margin-top: 1.6rem;
   padding: 12px 16px;
   border-radius: 8px;
   border: none;
   background: rgb(165, 232, 227);
-  color: rgb(86, 85, 85);
+  color: rgb(42, 39, 39);
   font-size: 20px;
   cursor: pointer;
   width: 100%;
@@ -58,6 +55,16 @@ button[disabled] {
 
 button:hover {
   box-shadow: 0 0 6px rgba(148, 148, 148, 0.5215686275);
-  background: rgb(3, 146, 190);
+  background: rgb(78, 119, 137);
   color: white;
-}/*# sourceMappingURL=password-recovery.component.css.map */
+}
+
+a,
+.message {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  font-family: "Cormorant Garamond";
+  font-size: 1.5em;
+  margin-top: 1rem;
+}/*# sourceMappingURL=sign-in-user.css.map */
