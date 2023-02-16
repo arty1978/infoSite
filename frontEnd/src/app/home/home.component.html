@@ -1,4 +1,11 @@
-<body>
+<body class="body">
+  <input
+    class="search"
+    type="search"
+    [(ngModel)]="searchVal"
+    placeholder=" search for Article"
+  />
+
   <h1>Welcome to the World Wide Article Archive</h1>
 
   <h2>So what kind of articles do we publish?</h2>
@@ -19,13 +26,6 @@
     You can browse our newest article below.<br />
     Don't forget to click an article you like to open it in full view:
   </h3>
-
-  <input
-    class="search"
-    type="search"
-    [(ngModel)]="searchVal"
-    placeholder="חיפוש"
-  />
 
   <div class="wraper">
     <div class="gridContainer">

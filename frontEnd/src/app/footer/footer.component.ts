@@ -39,12 +39,12 @@ export class FooterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.utility.getUser();
-    this.screenSize = window.innerWidth <= 767 ? 'mobile' : 'desktop';
+    this.screenSize = window.innerWidth <= 1235 ? 'mobile' : 'desktop';
     this.onResize();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.screenSize = window.innerWidth <= 767 ? 'mobile' : 'desktop';
+    this.screenSize = window.innerWidth <= 1325 ? 'mobile' : 'desktop';
   }
 }

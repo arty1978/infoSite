@@ -30,7 +30,10 @@ export class NavbarComponent implements OnInit {
     this.utility.isNavOpen = true;
   }
 
-  constructor(public utility: UtilityService, private router: Router) {
+  constructor(
+    public utility: UtilityService,
+    private router: Router,
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.active = event.url;

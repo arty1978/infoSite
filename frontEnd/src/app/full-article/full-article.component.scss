@@ -1,13 +1,13 @@
 @import '../../variables.scss';
 
 .wraper {
-    border: 1px solid rgb(245, 169, 169);
-    margin: 20px;
+    display: flex;
+    z-index: 2;
+    margin: 10px;
     padding: 20px;
 }
 
 div {
-
     color: $textColor;
     font-size: 1em;
     line-height: 2;

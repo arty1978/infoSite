@@ -6,7 +6,7 @@ import { Users } from './users/users.interface';
 })
 export class UtilityService implements OnInit {
   public user?: Users;
-  isNavOpen = true;
+  isNavOpen = false;
 
   setUser(user?: Users) {
     this.user = user;

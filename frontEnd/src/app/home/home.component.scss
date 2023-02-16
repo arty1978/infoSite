@@ -1,10 +1,14 @@
 @import '../../variables.scss';
 
-body {
-    background-image: url('../../media/reagan-freeman-4Eu5Qsz7jmI-unsplash.png');
-    top: 0;
-    height: auto;
-    height: 100%;
+
+
+.search {
+    display: flex;
+    position: fixed;
+    top: 1em;
+    right: 3%;
+    height: 1.5rem;
+    border-radius: 8px;
 }
 
 h1 {
@@ -15,7 +19,6 @@ h1 {
     font-family: 'Cormorant Garamond';
     font-size: 2.5em;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.346);
-    background-color: rgba(255, 255, 255, 0.329);
 
     @media (max-width: 480px) {
         padding-top: 30px;
@@ -47,7 +50,6 @@ p {
     margin-left: 10px;
     margin-bottom: 20px;
     line-height: 1.8;
-    background-color: rgba(255, 255, 255, 0.281);
     color: $textColor;
 
     @media (max-width: 480px) {
@@ -72,8 +74,6 @@ h3 {
 .wraper {
     display: flex;
     justify-content: center;
-
-
 }
 
 .gridContainer {

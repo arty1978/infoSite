@@ -24,24 +24,26 @@ a.active {
     padding-left: 12px;
 }
 
-.aFooter a {
+.aFooter a,
+.credits {
     margin-right: 10px;
     height: auto;
     margin-top: auto;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1325px) {
         display: none;
     }
 }
 
-.mobile {
-    @media (max-width: 767px) {
-        display: none;
-    }
-}
+
+// .mobile {
+//     @media (max-width: 767px) {
+//         display: none;
+//     }
+// }
 
 .mobile {
-    @media (max-width: 767px) {
+    @media (min-width: 1325px) {
         display: inline-block;
         font-size: 1.2rem;
     }

@@ -12,22 +12,18 @@
     <a *ngIf="utility.user" routerLink="" (click)="logout()"> Logout</a>
   </div>
   <a href="https://wa.me/+972506095185?text=Hello"
-    ><i class="fa fa-whatsapp"></i
+    ><i class="fa-brands fa-whatsapp"></i
   ></a>
   <a href="https://www.linkedin.com/in/artyom-fridman"
-    ><i class="fa fa-linkedin-square"></i
+    ><i class="fa-brands fa-linkedin"></i
   ></a>
-  <a
-    class="aFooter"
-    href="mailto:artyomf@walla.co.il"
-    *ngIf="screenSize !== 'mobile'"
-    ><i class="fa fa-envelope"></i> This website made by: &copy; Artyom Fridman
-    {{ date }}</a
+  <a href="mailto:artyomf@walla.co.il"><i class="fa fa-envelope"></i></a>
+  <a *ngIf="screenSize !== 'mobile'">
+    This website made by: &copy; Artyom Fridman {{ date }}</a
   >
+  <a *ngIf="screenSize === 'mobile'"> &copy; Artyom Fridman {{ date }}</a>
   <a
-    class="aFooter"
-    href="mailto:artyomf@walla.co.il"
-    *ngIf="screenSize === 'mobile'"
-    ><i class="fa fa-envelope"></i> &copy; Artyom Fridman {{ date }}</a
+    href="https://www.freepik.com/free-photo/white-stained-textured-paper-background_15440843.htm#page=2&query=newspaper%20background&position=3&from_view=keyword&track=ais"
+    >Img by rawpixel Freepik.com</a
   >
 </div>

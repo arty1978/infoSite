@@ -1,7 +1,11 @@
 @import '../../variables.scss';
 
+form {
+    background-color: #00000085;
+}
+
 .frame {
-    width: 400px;
+    width: 100em;
     max-width: 100%;
     margin: 30px auto;
     border-radius: 8px;
@@ -16,8 +20,9 @@
 label {
     display: block;
     margin-bottom: 3px;
-    color: rgb(141, 155, 208);
+    color: rgb(154, 170, 229);
     text-decoration: underline;
+    font-weight: 500;
 }
 
 input,
@@ -32,7 +37,7 @@ textarea {
 
 h2 {
     text-align: center;
-    color: #4e4e4e;
+    color: #c3bebe;
 }
 
 button {
