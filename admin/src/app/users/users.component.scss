@@ -1,5 +1,14 @@
 @import '../../variables';
 
+.search {
+  display: flex;
+  position: fixed;
+  top: 1em;
+  right: 3%;
+  height: 1.5rem;
+  border-radius: 8px;
+}
+
 h2 {
   margin: 10px;
   text-align: center;
@@ -50,8 +59,9 @@ tr td:last-child {
   text-align: left;
 }
 
-tr:hover {
-  border: 2px solid black;
+.userList:hover {
+  border: 1px solid black;
+  background-color: rgba(219, 216, 9, 0.233);
 }
 
 .edit {

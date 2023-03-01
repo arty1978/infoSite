@@ -1,3 +1,12 @@
+<input
+  class="search"
+  type="search"
+  [(ngModel)]="searchVal"
+  placeholder=" search for Article"
+/>
+
+<h2>Articles Management</h2>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +20,8 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let a of articles.reverse(); let i = index"
+      class="articleList"
+      *ngFor="let a of articles.reverse() | search : searchVal; let i = index"
       (dblclick)="edit(a)"
     >
       <td>{{ i + 1 }}</td>

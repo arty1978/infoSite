@@ -19,14 +19,18 @@ export class UserBodyComponent {
     for (const k in this.form.value) {
       (this.user as any)[k] = this.form.value[k];
     }
-
-    const sub = this.http
-      .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
-      .pipe()
-      .subscribe(() => {
-        sub.unsubscribe();
-        this.router.navigate(['users']);
-      });
+    const confirmation = window.confirm('Would you like to save changes?');
+    if (confirmation) {
+      const sub = this.http
+        .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
+        .pipe()
+        .subscribe(() => {
+          sub.unsubscribe();
+          this.router.navigate(['users']);
+        });
+    } else {
+      this.router.navigate(['users']);
+    }
   }
 
   buildForm(item: Users) {

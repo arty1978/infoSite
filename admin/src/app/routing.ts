@@ -8,8 +8,8 @@ import { UserBodyComponent } from './user-body/user-body.component';
 import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginAdminComponent },
-  { path: 'admins-page', component: AdminsPageComponent },
+  { path: '', component: AdminsPageComponent },
+  { path: 'login-admin', component: LoginAdminComponent },
   { path: 'users', component: UsersComponent },
   { path: 'articles', component: ArticlesComponent },
   { path: 'user-body/:id', component: UserBodyComponent },

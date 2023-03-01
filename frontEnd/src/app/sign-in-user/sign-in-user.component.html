@@ -7,7 +7,14 @@
   </div>
   <div class="field">
     <label>Password</label>
-    <input type="password" formControlName="password" />
+    <!-- <input type="password" formControlName="password" /> -->
+    <input
+      type="{{ showPassword ? 'text' : 'password' }}"
+      formControlName="password"
+    />
+    <button class="toggle" type="button" (click)="togglePasswordVisibility()">
+      <i class="fa-solid fa-eye{{ showPassword ? '-slash' : '' }}"></i>
+    </button>
   </div>
   <div class="message" *ngIf="this.attempts > 0">
     {{ message }}

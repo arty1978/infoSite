@@ -17,7 +17,7 @@ const getUsers = require('./handlers/users/getUsers');
 const deleteUser = require('./handlers/users/deleteUser');
 const updateUser = require('./handlers/users/updateUser');
 const getOneUser = require('./handlers/users/findUser');
-const authenticateUser = require('./middlewares/authenticateUser');//1
+const authenticateUser = require('./middlewares/authenticateUser');
 const signInStatus = require('./handlers/users/signInUser').signInStatus;
 const resetPassword = require('./handlers/users/reset');
 
@@ -28,7 +28,6 @@ const adminUpdateArticle = require('./handlers/articles/adminUpdateArticle')
 server.use(express.json());
 server.use(cors({
     origin: true,
-    // origin: 'http://localhost:4200',
     methods: 'GET,PUT,POST,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, token',
@@ -42,7 +41,7 @@ server.options('*', (req, res, next) => {
     next();
 });
 
-server.post('/articles/create', authenticateUser, createArticle);//3
+server.post('/articles/create', authenticateUser, createArticle);
 server.get('/articles', getArticles);
 server.delete('/articles/deleteone/:id', authenticateUser, deleteArticle);
 server.put('/articles/updateone', authenticateUser, updateArticle)
@@ -55,8 +54,8 @@ server.post('/users/create', signUpUser);
 server.post('/users/signin', signinUser);
 server.get('/users/signin', signInStatus);
 server.delete('/users/deleteone/:id', authenticateUser, deleteUser);
-server.get('/users/finduser', authenticateUser, getOneUser);//2
-server.put('/users/updateone', authenticateUser, updateUser)
+server.get('/users/finduser', authenticateUser, getOneUser);
+server.put('/users/updateone', updateUser)
 server.post('/users/reset', resetPassword)
 
 server.post('/admin/signin', signInAdmin);

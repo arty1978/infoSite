@@ -6,7 +6,7 @@ import { Admin } from './admins-page/admins.interface';
 })
 export class UtilityService implements OnInit {
   public user?: Admin;
-  isNavOpen = true;
+  isNavOpen = false;
 
   setUser(user?: Admin) {
     this.user = user;

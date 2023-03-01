@@ -14,17 +14,23 @@ export class UsersComponent {
   signIn: SignIn;
   edit(item: Users) {
     this.router.navigate(['user-body', item._id]);
-    // this.router.navigateByUrl(`user-body?id=${item._id}`);
   }
+  searchVal: string;
+
   remove(item: Users) {
-    localStorage.getItem('token');
-    const sub = this.http
-      .delete<Users>(`users/deleteone/${item._id}`)
-      .subscribe((data) => {
-        const i = this.user.findIndex((x) => x._id === item._id);
-        this.user.splice(i, 1);
-        sub.unsubscribe();
-      });
+    const confirmation = window.confirm(
+      'Are you sure you want to delete this item?'
+    );
+    if (confirmation) {
+      localStorage.getItem('token');
+      const sub = this.http
+        .delete<Users>(`users/deleteone/${item._id}`)
+        .subscribe((data) => {
+          const i = this.user.findIndex((x) => x._id === item._id);
+          this.user.splice(i, 1);
+          sub.unsubscribe();
+        });
+    }
   }
   constructor(private http: HttpService, private router: Router) {}
 

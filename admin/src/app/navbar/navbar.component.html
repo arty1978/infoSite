@@ -5,13 +5,19 @@
     [routerLink]="item.route"
     [hidden]="item.isConnected && !utility.user"
   >
-    <i *ngIf="item.icon" class="fa fa-{{ item.icon }}"></i> {{ item.title }}</a
+    <i *ngIf="item.icon" class="fa-solid fa-{{ item.icon }}"></i>
+    {{ item.title }}</a
   >
+  <p *ngIf="!utility.user">
+    <a routerLink="login-admin"> <i class="fa-solid fa-sign-in"></i> Login</a>
+  </p>
 
   <a *ngIf="utility.user" routerLink="" (click)="signOut()"
     ><i class="fa fa-sign-out"></i> Logout</a
   >
-  <a>Welcome {{ utility.getUser()?.fullName }}!</a>
+  <a>
+    Welcome {{ utility.user ? utility.getUser()?.fullName : "and login" }}!</a
+  >
 </nav>
 
 <div class="burgerContainer">
@@ -27,7 +33,11 @@
     [hidden]="item.isConnected && !utility.user"
     >{{ item.title }}</a
   >
+  <p *ngIf="utility.user">
+    <a routerLink="login-admin"> <i class="fa fa-sign-in"></i> Login</a>
+  </p>
+  <a *ngIf="utility.user" routerLink="" (click)="signOut()"
+    ><i class="fa fa-sign-out"></i>Logout</a
+  >
   <a>Welcome {{ utility.getUser() }}!</a>
-
-  <a *ngIf="utility.user" routerLink="" (click)="signOut()">Logout</a>
 </nav>

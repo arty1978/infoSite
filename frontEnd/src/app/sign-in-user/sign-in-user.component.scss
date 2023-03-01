@@ -24,7 +24,8 @@ h2 {
 
 .field {
     padding: 15px;
-
+    // display: flex;
+    // justify-content: center;
 }
 
 label {
@@ -74,4 +75,17 @@ a,
     font-family: $beutyText;
     font-size: 1.5em;
     margin-top: 1rem;
+}
+
+.toggle {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    background: $navColor;
+    color: $textColor;
+    font-size: 15px;
+    cursor: pointer;
+    width: 15%;
 }

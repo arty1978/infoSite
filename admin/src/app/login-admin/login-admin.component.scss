@@ -61,3 +61,16 @@ button:hover {
   background: rgb(3, 146, 190);
   color: white;
 }
+
+.toggle {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  background: $navColor;
+  color: $textColor;
+  font-size: 15px;
+  cursor: pointer;
+  width: 15%;
+}

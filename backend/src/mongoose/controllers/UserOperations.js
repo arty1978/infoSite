@@ -15,9 +15,8 @@ async function createAUserInMongoDb(userDetails) {
 }
 async function signInUser(email, password) {
     try {
-
         userFromDb = await userModel.findOne({ email: email });
-
+        console.log(userFromDb, '???');
         if (!userFromDb)
             return null;
         if (userFromDb.tempPassword == password) {
@@ -26,10 +25,10 @@ async function signInUser(email, password) {
         }
 
         const result = await bcryptjs.compare(password, userFromDb.password);
-        // const result = Promise.resolve(bcryptjs.compare(password, userFromDb.password));
-
         if (result)
-            return userFromDb;
+            console.log('status', 200);
+        // return userFromDb;
+        return result;
 
     } catch {
         return console.log('error occurred');
@@ -69,11 +68,16 @@ async function deleteUser(id) {
 }
 
 async function updateUser(id, userData) {
+    console.log(id, userData, 'in operations');
     try {
+        console.log({ _id: id }, userData, 'before bcrypts');
         userData.password = bcryptjs.hashSync(userData.password);
+        // console.log(userData.password); checked
         userData.passwordConfirmation = bcryptjs.hashSync(userData.passwordConfirmation);
-
+        // console.log(userData.passwordConfirmation); checked 
+        // console.log({ id: id }, userData, 'after password');
         const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);
+        console.log(updatedUser, userData.passwordConfirmation, 'updated user in operations');
         return updatedUser;
     }
     catch
@@ -81,6 +85,7 @@ async function updateUser(id, userData) {
         return null;
     }
 }
+
 async function updateUserPass(id, userData) {
     try {
         const updatedUser = await userModel.findByIdAndUpdate({ _id: id }, userData);

@@ -1,14 +1,14 @@
 const nodemailer = require('nodemailer');
-const sender = 'artyf@walla.co.il'
+const sender = 'artyomfrid@outlook.com'
 
 function mailer(receipient, msg) {
 
 
     const transporter = nodemailer.createTransport({
-        service: 'walla',
+        service: 'outlook',
         auth: {
             user: sender,
-            pass: 'Jopa1928'
+            pass: 'Open2023'
         }
     });
 

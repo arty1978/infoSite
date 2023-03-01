@@ -26,21 +26,25 @@ export class PasswordRecoveryComponent {
   });
 
   send() {
-    console.log('hi');
-
-    if (this.form.value.password == this.form.value.passwordConfirmation) {
+    if (this.form.value.password === this.form.value.passwordConfirmation) {
       console.log('true');
+      if (this.utility.user) {
+        console.log(this.utility.user, 'available user in password reset ts');
 
-      this.user.password = this.form.value.password;
-      this.user.tempReset = false;
-      this.user.tempPassword = '';
-      console.log(this.form.value.password, '####');
+        this.utility.user.password = this.form.value.password;
+        this.utility.user.passwordConfirmation =
+          this.form.value.passwordConfirmation;
+        console.log(this.user.password);
+        this.user.tempReset = false;
+        this.user.tempPassword = '';
+      }
     }
     const sub = this.http
-      .put<void>(`users/updateone?_id=${this.user._id}`, this.user)
+      .put<void>(`users/updateone?_id=${this.user.id}`, this.user)
       .subscribe((item) => {
+        console.log(this.user);
         sub.unsubscribe();
-        this.router.navigate(['articles']);
+        this.router.navigate(['']);
       });
   }
   buildForm(item: Users) {
@@ -72,7 +76,9 @@ export class PasswordRecoveryComponent {
     private router: Router,
     public utility: UtilityService
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.utility.user;
+  }
 
   ngOnDestroy() {
     this.sub.unsubscribe();

@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { Articles } from './articles.interface';
 import { SignIn } from '../sign-in-user/signIn.interFace';
-import { FilterPipe } from '../filter.pipe';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-articles',
@@ -17,22 +15,26 @@ export class ArticlesComponent implements OnInit {
   title = 'angular-text-search-highlight';
   searchText = '';
   characters: Articles[] = [];
+  searchVal: string;
 
   edit(item: Articles) {
     this.router.navigate(['articles-body', item._id]);
   }
   remove(item: Articles) {
-    localStorage.getItem('token');
-
-    const sub = this.http
-      .delete<Articles>(`articles/deleteone/${item._id}`)
-      .subscribe((data) => {
-        const i = this.articles.findIndex((x) => x._id === item._id);
-        this.articles.splice(i, 1);
-        sub.unsubscribe();
-      });
+    const confirmation = window.confirm(
+      'Are you sure you want to delete this item?'
+    );
+    if (confirmation) {
+      localStorage.getItem('token');
+      const sub = this.http
+        .delete<Articles>(`articles/deleteone/${item._id}`)
+        .subscribe((data) => {
+          const i = this.articles.findIndex((x) => x._id === item._id);
+          this.articles.splice(i, 1);
+          sub.unsubscribe();
+        });
+    }
   }
-
   constructor(private http: HttpService, private router: Router) {}
 
   ngOnInit() {

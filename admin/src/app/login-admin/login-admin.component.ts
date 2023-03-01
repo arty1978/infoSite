@@ -19,6 +19,12 @@ export class LoginAdminComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   signIn() {
     const data = {
       email: this.form.value.email,

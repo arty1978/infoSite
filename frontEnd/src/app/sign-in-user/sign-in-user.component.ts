@@ -18,6 +18,11 @@ export class SignInUserComponent {
   form: FormGroup;
   attempts: number = 0;
   message: string = 'Incorrect Email or Password';
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   signIn() {
     const data = {
@@ -30,6 +35,8 @@ export class SignInUserComponent {
       .subscribe((item) => {
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
+        console.log(item.user, item.user);
+
         if (
           // item.user.tempReset &&
           this.form.value.password == item.user.tempPassword

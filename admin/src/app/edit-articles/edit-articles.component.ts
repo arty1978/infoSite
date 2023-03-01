@@ -21,17 +21,21 @@ export class EditArticlesComponent implements OnInit {
     for (const k in this.form.value) {
       (this.article as any)[k] = this.form.value[k];
     }
-
-    const sub = this.http
-      .put<void>(
-        `articles/adminUpdateone?_id=${this.article._id}`,
-        this.article
-      )
-      .pipe()
-      .subscribe(() => {
-        sub.unsubscribe();
-        this.router.navigate(['articles']);
-      });
+    const confirmation = window.confirm('Would you like to save changes?');
+    if (confirmation) {
+      const sub = this.http
+        .put<void>(
+          `articles/adminUpdateone?_id=${this.article._id}`,
+          this.article
+        )
+        .pipe()
+        .subscribe(() => {
+          sub.unsubscribe();
+          this.router.navigate(['articles']);
+        });
+    } else {
+      this.router.navigate(['articles']);
+    }
   }
 
   buildForm(item: Articles) {

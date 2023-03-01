@@ -8,8 +8,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Users } from '../users/users.interface';
 import { UsersComponent } from '../users/users.component';
 
-// import { DatePipe } from '@angular/common';
-
 @Component({
   selector: 'app-articles-body',
   templateUrl: './articles-body.component.html',
@@ -20,24 +18,24 @@ export class ArticlesBodyComponent implements OnInit {
   article: Articles;
   form: FormGroup;
   author: Users;
-  alternativeImage?: string | ArrayBuffer | null;
-  alternativeImageName?: string;
-
-  @ViewChild('imageInput')
-  inputElem!: ElementRef<HTMLInputElement>;
 
   update() {
     for (const k in this.form.value) {
       (this.article as any)[k] = this.form.value[k];
     }
-
-    const sub = this.http
-      .put<void>(`articles/updateone?_id=${this.article._id}`, this.article)
-      .pipe()
-      .subscribe(() => {
-        sub.unsubscribe();
-        this.router.navigate(['articles']);
-      });
+    const confirmation = window.confirm('Would you like to save changes?');
+    if (confirmation) {
+      const sub = this.http
+        .put<void>(`articles/updateone?_id=${this.article._id}`, this.article)
+        .pipe()
+        .subscribe(() => {
+          sub.unsubscribe();
+          alert('Article updated Successfully');
+          this.router.navigate(['articles']);
+        });
+    } else {
+      this.router.navigate(['articles']);
+    }
   }
 
   add() {
@@ -47,6 +45,7 @@ export class ArticlesBodyComponent implements OnInit {
       .post<Articles>('articles/create', data)
       .subscribe((item) => {
         sub.unsubscribe();
+        alert('Article published Successfully');
         this.router.navigate(['articles']);
       });
   }
@@ -58,25 +57,6 @@ export class ArticlesBodyComponent implements OnInit {
       category: new FormControl(item.category, [Validators.required]),
       body: new FormControl(item.body),
     });
-  }
-
-  selectImage() {
-    this.inputElem.nativeElement.click();
-  }
-
-  imageChange() {
-    const files = this.inputElem.nativeElement.files;
-
-    if (files?.length) {
-      const reader = new FileReader();
-
-      reader.onload = (ev) => {
-        this.alternativeImage = ev.target?.result;
-        this.alternativeImageName = files[0].name;
-      };
-
-      reader.readAsDataURL(files[0]);
-    }
   }
 
   constructor(

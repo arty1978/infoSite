@@ -10,8 +10,14 @@ import { Menu } from './navbar.interface';
 export class NavbarComponent implements OnInit {
   active: string = '';
   menu: Menu[] = [
-    { route: '/users', title: 'Users', icon: 'black-tie' },
-    { route: '/articles', title: 'Articles', icon: 'book' },
+    { route: '/', title: 'Admins page', icon: 'user-tie' },
+    { route: '/users', title: 'Users', isConnected: true, icon: 'users' },
+    {
+      route: '/articles',
+      title: 'Articles',
+      isConnected: true,
+      icon: 'book',
+    },
   ];
 
   signOut() {

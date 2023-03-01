@@ -15,6 +15,7 @@ import { UsersComponent } from './users/users.component';
 import { UserBodyComponent } from './user-body/user-body.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { EditArticlesComponent } from './edit-articles/edit-articles.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EditArticlesComponent } from './edit-articles/edit-articles.component';
     UserBodyComponent,
     ArticlesComponent,
     EditArticlesComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

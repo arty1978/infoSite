@@ -36,6 +36,7 @@ export class AppComponent {
 
   ngOnInit() {
     const userString = localStorage.getItem('user');
+
     if (userString) {
       const user = JSON.parse(userString);
       if (user && user !== null && user !== undefined) {

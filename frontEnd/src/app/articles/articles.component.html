@@ -2,6 +2,13 @@
   Here you can find all of your articles. You can edit each Article or remove
   it.
 </h2>
+<input
+  class="search"
+  type="search"
+  [(ngModel)]="searchVal"
+  placeholder=" search for Article"
+/>
+
 <br />
 <div class="">
   <button routerLink="/articles-body" class="newArticleButton">
@@ -23,7 +30,8 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let a of articles.reverse(); let i = index"
+      class="articleList"
+      *ngFor="let a of articles.reverse() | search : searchVal; let i = index"
       (dblclick)="edit(a)"
     >
       <td>{{ i + 1 }}</td>
