@@ -27,14 +27,10 @@ export class PasswordRecoveryComponent {
 
   send() {
     if (this.form.value.password === this.form.value.passwordConfirmation) {
-      console.log('true');
       if (this.utility.user) {
-        console.log(this.utility.user, 'available user in password reset ts');
-
         this.utility.user.password = this.form.value.password;
         this.utility.user.passwordConfirmation =
           this.form.value.passwordConfirmation;
-        console.log(this.user.password);
         this.user.tempReset = false;
         this.user.tempPassword = '';
       }
@@ -42,9 +38,8 @@ export class PasswordRecoveryComponent {
     const sub = this.http
       .put<void>(`users/updateone?_id=${this.user.id}`, this.user)
       .subscribe((item) => {
-        console.log(this.user);
         sub.unsubscribe();
-        this.router.navigate(['']);
+        this.router.navigate(['articles']);
       });
   }
   buildForm(item: Users) {
@@ -80,7 +75,7 @@ export class PasswordRecoveryComponent {
     this.user = this.utility.user;
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.sub.unsubscribe();
+  // }
 }

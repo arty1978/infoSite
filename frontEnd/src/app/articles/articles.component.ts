@@ -39,14 +39,21 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit() {
     localStorage.getItem('token');
+    console.log(localStorage.getItem('token'));
 
-    const userId = localStorage.getItem('user');
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user = JSON.parse(userString);
+      console.log(user.id, 'localstora');
 
-    const sub = this.http
-      .get<Articles[]>(`articles/getMyArticles?_id=${userId}`)
-      .subscribe((data) => {
-        this.articles = data;
-        sub.unsubscribe();
-      });
+      const sub = this.http
+        .get<Articles[]>(`articles/getMyArticles?_id=${user.id}`)
+        .subscribe((data) => {
+          console.log(data, 'articles');
+
+          this.articles = data;
+          sub.unsubscribe();
+        });
+    }
   }
 }

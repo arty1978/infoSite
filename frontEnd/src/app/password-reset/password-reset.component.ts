@@ -25,8 +25,6 @@ export class PasswordResetComponent {
     const sub = this.http
       .post<SignIn>('users/reset', data)
       .subscribe((item) => {
-        console.log(item, 'is there a token?');
-
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
 
@@ -34,9 +32,9 @@ export class PasswordResetComponent {
         this.utility.setUser(item.user);
 
         sub.unsubscribe();
-        console.log(this.user._id);
 
         if (this.user._id) this.router.navigate(['sign-in-user']);
+        console.log(this.user);
       });
     //עלינו לשלוח מייל ללקוח
   }

@@ -10,6 +10,8 @@ async function signInAdmin(req, res) {
     const { email, password } = req.body;
 
     const userFromDb = await operations.signInAdmin(email, password);
+    console.log(userFromDb, '!!!');
+
 
     if (!userFromDb)
         return res.status(500).json('no user found');

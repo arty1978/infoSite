@@ -5,7 +5,6 @@ const operations = require('../../../mongoose/controllers/UserOperations');
 async function updateUser(req, res) {
 
     const userId = req.body.id;
-    console.log(userId, 'first appearance of id user in backend "updateuser.js"');
     if (!userId) {
         return res.status(400).json('user Id not deliverd');
     }

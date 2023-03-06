@@ -13,22 +13,6 @@ async function createUser(req, res) {
 
     req.body.createdAt = new Date().toLocaleString();
 
-    // const msg1 = `
-    // Welcome to the World Wide Article Archive.
-    // Your userName is ${item.fullName},
-    // If you forgot your password, 
-    // please go to "Reset your password" link on the "Login" page
-    // `;
-
-    // await this.mailService.mailer(body.email, msg)
-    // const resetCode = `Rc${Math.round(Math.random() * 100000000)}`
-    // const msg2 = `Your Reset Code Is ${resetCode}`;
-    // const msg3 = `
-    //    שלום ${item.fullName}
-    //    .הפרטים האישים שלך עודכנו בהצלחה 
-    //    המשך גלישה מהנה.
-    //     `;
-
 
     const userFromDb = await operations.createAUserInMongoDb(req.body)
     if (!userFromDb) {

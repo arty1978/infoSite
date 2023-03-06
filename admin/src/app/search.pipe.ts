@@ -21,7 +21,6 @@ export class SearchPipe implements PipeTransform {
         if (val.includes(searchVal.toLowerCase().trim())) {
           return true;
         }
-        console.log(obj.key);
       }
       return false;
     });

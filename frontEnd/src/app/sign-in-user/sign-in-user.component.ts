@@ -33,14 +33,12 @@ export class SignInUserComponent {
     const sub = this.http
       .post<SignIn>('users/signin', data)
       .subscribe((item) => {
+        // console.log(item, 'front signin item');
+
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
-        console.log(item.user, item.user);
 
-        if (
-          // item.user.tempReset &&
-          this.form.value.password == item.user.tempPassword
-        ) {
+        if (this.form.value.password == item.user.tempPassword) {
           this.router.navigate(['password-recovery']);
           sub.unsubscribe();
           return;
