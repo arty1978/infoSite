@@ -24,6 +24,11 @@ export class PasswordRecoveryComponent {
       Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
     ]),
   });
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   send() {
     if (this.form.value.password === this.form.value.passwordConfirmation) {
