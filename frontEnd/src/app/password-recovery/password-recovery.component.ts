@@ -75,7 +75,7 @@ export class PasswordRecoveryComponent {
     this.user = this.utility.user;
   }
 
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }
