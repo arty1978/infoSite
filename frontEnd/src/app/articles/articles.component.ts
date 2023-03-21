@@ -35,21 +35,18 @@ export class ArticlesComponent implements OnInit {
         });
     }
   }
-  constructor(private http: HttpService, private router: Router) {}
+  constructor(private http: HttpService, private router: Router) { }
 
   ngOnInit() {
     localStorage.getItem('token');
-    console.log(localStorage.getItem('token'));
 
     const userString = localStorage.getItem('user');
     if (userString) {
       const user = JSON.parse(userString);
-      console.log(user.id, 'localstora');
 
       const sub = this.http
         .get<Articles[]>(`articles/getMyArticles?_id=${user.id}`)
         .subscribe((data) => {
-          console.log(data, 'articles');
 
           this.articles = data;
           sub.unsubscribe();

@@ -22,6 +22,11 @@ Article storage: This site have a database for storing articles and user informa
 Site design: The site  have a visually appealing design with a user-friendly interface.
 Responsiveness: The site responsive and accessible on different devices and screen sizes.
 
+APP start commands: 
+    frontend: ng serve -o
+    backend: npm run start
+    admin: ng serve -o
+
 Conclusion:
 
 The article site provides a platform for registered users to write and publish articles while allowing a site administrator to manage user information and article content.

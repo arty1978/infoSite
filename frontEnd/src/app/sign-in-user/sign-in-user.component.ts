@@ -32,7 +32,6 @@ export class SignInUserComponent {
     const sub = this.http
       .post<SignIn>('users/signin', data)
       .subscribe((item) => {
-        // console.log(item, 'front signin item');
 
         localStorage.setItem('token', item.token);
         localStorage.setItem('user', JSON.stringify(item.user));
@@ -82,5 +81,5 @@ export class SignInUserComponent {
     this.buildForm(this.user);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

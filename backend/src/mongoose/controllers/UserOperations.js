@@ -25,18 +25,6 @@ async function signInUser(email, password) {
 
         const result = await bcryptjs.compare(password, userFromDb.password);
         if (result)
-            // console.log('status', 200);
-            // return userFromDb && result;
-            // return {
-            //     userFromDb: {
-            //         id: userFromDb._id,
-            //         email: userFromDb.email,
-            //         userName: userFromDb.userName,
-            //         fullName: userFromDb.fullName,
-            //         tempPassword: userFromDb.tempPassword
-            //     },
-            //     result
-            // };
             return userFromDb;
     } catch {
         return console.log('error occurred');

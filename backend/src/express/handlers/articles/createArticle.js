@@ -6,10 +6,9 @@ const userOperations = require('../../../mongoose/controllers/UserOperations')
 /** @type {import("express").RequestHandler} */
 async function createArticle(req, res) {
     const result = validateNewArticle(req.body);
-    console.log(result, 'article object');
+
     if (result.err) return response.status(400).json(result.error.details[0].message);
     req.body.userId = req.userID;
-    console.log(req.userID, '#$#$#$');
 
     const author = await userOperations.getOneUser(req.userID);
     req.body.author = author.fullName;

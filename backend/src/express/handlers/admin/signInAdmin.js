@@ -10,7 +10,6 @@ async function signInAdmin(req, res) {
     const { email, password } = req.body;
 
     const userFromDb = await operations.signInAdmin(email, password);
-    console.log(userFromDb, '!!!');
 
 
     if (!userFromDb)
